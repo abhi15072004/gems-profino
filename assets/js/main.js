@@ -390,26 +390,59 @@
   /* ------------------------------------------------------------------------
      Scroll reveal
      ------------------------------------------------------------------------ */
+  // A deliberate position check on scroll, rather than IntersectionObserver.
+  // The observer is not guaranteed to deliver a callback for an element that
+  // crosses the viewport between ticks, so a fast flick-scroll on a phone can
+  // leave a section stuck at opacity 0. Testing reproduced exactly that. A
+  // rect check cannot miss: if the element is in or above the viewport, it is
+  // revealed. Six elements behind a requestAnimationFrame gate costs nothing.
   function initReveal() {
     var items = $$('.reveal');
     if (!items.length) return;
 
-    if (!('IntersectionObserver' in window) ||
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    function revealAll() {
       items.forEach(function (el) { el.classList.add('is-in'); });
+      items = [];
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      revealAll();
       return;
     }
 
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    var queued = false;
 
-    items.forEach(function (el) { io.observe(el); });
+    function check() {
+      queued = false;
+      var trigger = window.innerHeight * 0.9;
+
+      items = items.filter(function (el) {
+        if (el.getBoundingClientRect().top < trigger) {
+          el.classList.add('is-in');
+          return false;
+        }
+        return true;
+      });
+
+      if (!items.length) {
+        window.removeEventListener('scroll', onChange);
+        window.removeEventListener('resize', onChange);
+      }
+    }
+
+    function onChange() {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(check);
+    }
+
+    window.addEventListener('scroll', onChange, { passive: true });
+    window.addEventListener('resize', onChange);
+
+    // Last resort: whatever happens, nothing stays invisible for long.
+    window.setTimeout(revealAll, 4000);
+
+    check();
   }
 
   /* ------------------------------------------------------------------------
