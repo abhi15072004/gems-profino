@@ -481,7 +481,7 @@ PRODUCTS = [
     {
         'slug': 'home-loan',
         'name': 'Home Loan',
-        'title': 'Home Loan in Chennai — Rates, Eligibility & Documents | GEMS Profino',
+        'title': 'Home Loan in Chennai — Rates & Eligibility | GEMS Profino',
         'desc': 'Home loans in Chennai from 18 banking partners. We find the lender most likely to approve your file, prepare the paperwork and follow it to disbursal.',
         'h1': 'Home loans in Chennai, placed with the bank most likely to approve you.',
         'lede': 'For buying a flat or plot, building on land you own, or moving an existing loan to a cheaper rate.',
@@ -543,7 +543,7 @@ PRODUCTS = [
     {
         'slug': 'property-loan',
         'name': 'Property Loan',
-        'title': 'Loan Against Property in Chennai — LAP Rates & Eligibility | GEMS Profino',
+        'title': 'Loan Against Property (LAP) in Chennai | GEMS Profino',
         'desc': 'Loan against property in Chennai. Raise funds against a house, flat, shop or land you already own, at rates far below an unsecured loan.',
         'h1': 'Raise money against property you already own.',
         'lede': 'A loan against property — LAP — is secured on a house, flat, shop or plot you hold. Because the lender has security, the rate is a fraction of an unsecured business or personal loan.',
@@ -601,7 +601,7 @@ PRODUCTS = [
     {
         'slug': 'business-loan',
         'name': 'Business Loan',
-        'title': 'Business Loan in Chennai — Working Capital & Expansion | GEMS Profino',
+        'title': 'Business Loan in Chennai — Working Capital | GEMS Profino',
         'desc': 'Business loans in Chennai for working capital, expansion and machinery. Unsecured and secured options across 18 banking and NBFC partners.',
         'h1': 'Business loans that account for how your business actually earns.',
         'lede': 'Working capital, expansion, machinery or a large order you need to fund. Unsecured up to a point, and secured against property when the amount is larger.',
@@ -661,7 +661,7 @@ PRODUCTS = [
     {
         'slug': 'car-loan-new',
         'name': 'Car Loan (New)',
-        'title': 'New Car Loan in Chennai — Up to 100% On-Road Funding | GEMS Profino',
+        'title': 'New Car Loan in Chennai — 100% On-Road Funding | GEMS Profino',
         'desc': 'New car loans in Chennai with up to 100% on-road funding. Compare rates across banks before you accept the dealer finance offer.',
         'h1': 'New car finance, at a better rate than the dealer will quote you.',
         'lede': 'The finance desk at a showroom works with the lenders that pay it best. Compare independently before you sign — on a five-year loan, half a percent is real money.',
@@ -715,7 +715,7 @@ PRODUCTS = [
     {
         'slug': 'car-loan-used',
         'name': 'Car Loan (Used)',
-        'title': 'Used Car Loan in Chennai — Pre-Owned Car Finance | GEMS Profino',
+        'title': 'Used Car Loan in Chennai — Pre-Owned Finance | GEMS Profino',
         'desc': 'Used car loans in Chennai for dealer and private purchases. Funding based on the valuation report, with lenders that finance older vehicles.',
         'h1': 'Finance for a pre-owned car, from a dealer or a private seller.',
         'lede': 'Used car funding is decided by the lender\'s valuation of the vehicle, not the price on the sticker. Knowing that before you negotiate puts you in a better position.',
