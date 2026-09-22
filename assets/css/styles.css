@@ -1192,6 +1192,21 @@ p:last-child { margin-bottom: 0; }
   font-weight: 700;
 }
 
+/* Link lists reuse .check's layout but not its tick: a checkmark asserts
+   something is included, which is the wrong meaning for a link. */
+.check--links li::before {
+  content: "97";
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: var(--gold);
+  font-size: 0.9rem;
+  line-height: 1.2;
+  margin-top: 1px;
+  width: 14px;
+  text-align: left;
+}
+
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1218,11 +1233,13 @@ p:last-child { margin-bottom: 0; }
   cursor: help;
 }
 
-/* On the dark band a gold tint would bury white text, so mark it with the
-   rule alone. */
-.block--dark .tbc {
+/* On any dark surface a gold tint buries the white text and reads as a
+   stray highlighted box, so mark those with the rule alone. */
+.block--dark .tbc,
+.site-foot .tbc {
   background: transparent;
   border-bottom-color: var(--gold);
+  color: inherit;
 }
 
 /* Whole-block placeholders (a sample testimonial, a paragraph of sample

@@ -210,7 +210,7 @@ CONTACT = '''
       </div>
 
       <p class="eyebrow" style="margin-top:40px">Social</p>
-      <ul class="check">
+      <ul class="check check--links">
         <li><a href="https://instagram.com/gemsprofino" rel="noopener">Instagram — @gemsprofino</a></li>
         <li><a href="https://facebook.com/gemsprofino" rel="noopener">Facebook — @gemsprofino</a></li>
       </ul>
