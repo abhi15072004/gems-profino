@@ -2,9 +2,17 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "comment": "Stylesheet and script filenames are NOT content-hashed, so they must never be cached immutably: a returning visitor would keep the old build for a year and never receive a design or copy update. max-age=0 with revalidation is cheap here, because ETags turn repeat requests into 304s and Vercel's CDN still serves them from the edge.",
+      "source": "/assets/(css|js)/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "comment": "Images change rarely. A week of caching with a background refresh is safe; if an image must change immediately, rename the file and update the reference.",
+      "source": "/assets/img/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }
       ]
     },
     {

@@ -223,3 +223,20 @@ they will either need to add those records or grant registrar access.
   require updating every internal link and canonical.
 - Web3Forms' free tier allows 250 submissions per month. If campaigns push
   past that, move to a paid tier or a small serverless function.
+
+---
+
+## A note on caching
+
+`assets/css/styles.css` and `assets/js/main.js` are served with
+`max-age=0, must-revalidate`, deliberately. Their filenames carry no content
+hash, so caching them immutably would leave returning visitors on an old build
+for up to a year — an edit to the stylesheet would simply never reach them.
+ETags keep the revalidation cheap, and Vercel's CDN still serves from the edge.
+
+If you ever add a build step that fingerprints filenames
+(`styles.a1b2c3.css`), then — and only then — switch those back to
+`max-age=31536000, immutable`.
+
+Images are cached for a week. To change one immediately, rename the file and
+update the reference rather than relying on cache expiry.
