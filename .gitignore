@@ -1,0 +1,14 @@
+# tooling
+__pycache__/
+*.pyc
+.playwright-mcp/
+
+# editors
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# never commit client contracts or unprocessed source creatives
+*.pdf
