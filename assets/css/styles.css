@@ -11,20 +11,52 @@
    1. DESIGN TOKENS  — the only place colours are defined
    -------------------------------------------------------------------------- */
 :root {
-  /* --- BRAND PALETTE ---------------------------------------------------
-     Sampled directly out of the client's own logo and creatives, so the
-     logo PNG sits on --cream with no visible seam. Do not eyeball these.
+  /* =====================================================================
+     THEME SWITCH — exactly one of the two palettes below may be active.
+     To go back to the brand palette: comment out palette B, uncomment A.
+     Token NAMES never change, so no other line in this file is touched.
+     ===================================================================== */
+
+  /* --- PALETTE A — BRAND, sampled from the client's logo ----------------
+     ACTIVE. Confirmed by the client on 23 Sep 2026: green #04512F,
+     gold #CF9C35. --cream is the exact creative background the logo PNG was
+     keyed from, so the mark sits on it with no visible seam.
      --------------------------------------------------------------------- */
   --ink:          #14241B;   /* body text — a green-black, not pure black     */
   --ink-soft:     #4C5B51;   /* secondary text                                */
-  --forest:       #04512F;   /* logo green — buttons, links                   */
-  --forest-deep:  #032B1A;   /* dark sections, footer                         */
+  --forest:       #04512F;   /* PRIMARY — the logo green                      */
+  --forest-deep:  #032B1A;   /* dark sections, footer, primary button hover   */
   --forest-tint:  #E4EFE8;   /* pale green wash                               */
-  --gold:         #CF9C35;   /* logo gold — accent only, never large areas    */
+  --gold:         #CF9C35;   /* accent — the logo gold                        */
   --gold-soft:    #F6E3BE;   /* gold wash                                     */
-  --gold-deep:    #A06904;   /* darkest stop of the logo's gold gradient      */
-  --cream:        #FFE7D1;   /* page background — exact creative background   */
-  --paper:        #FFF8F0;   /* cards / raised surfaces                       */
+  --gold-deep:    #A06904;   /* pressed / hover gold                          */
+  --cream:        #FFE7D1;   /* page background                               */
+  --cream-glass:  rgba(255, 231, 209, 0.94);  /* sticky header                */
+  --paper:        #FFF8F0;   /* cards / alternating bands                     */
+
+
+  /* --- PALETTE B — ORANGE & WHITE (trial) -------------------------------
+     NOT ACTIVE. Kept for reference — a Swiggy-style scheme, one hot orange
+     carrying every action, everything else white and neutral grey. Token
+     roles are unchanged; --forest is still "the primary colour".
+     To try it again: wrap palette A above in a comment and un-comment this.
+     Declarations are left bare so uncommenting yields valid CSS as-is.
+     Also swap the DERIVED block below to the navy tint, noted there.
+
+  --ink:          #282C3F;
+  --ink-soft:     #686B78;
+  --forest:       #FC8019;
+  --forest-deep:  #282C3F;
+  --forest-tint:  #FFF3EA;
+  --gold:         #FC8019;
+  --gold-soft:    #FFE8D3;
+  --gold-deep:    #E06D0A;
+  --cream:        #FFFFFF;
+  --cream-glass:  rgba(255, 255, 255, 0.92);
+  --paper:        #F7F7F8;
+
+     --- end of palette B --------------------------------------------- */
+
   --white:        #FFFFFF;
 
   /* --- FUNCTIONAL (not brand) --- */
@@ -35,12 +67,13 @@
   --error-line:   #F0C9C9;
   --error-ink:    #8F1D1D;
 
-  /* --- DERIVED (leave these; they follow the palette above) --- */
+  /* --- DERIVED (leave these; they follow the palette above) ---
+     Tinted to palette A's ink. For palette B use rgba(40, 44, 63, ...). */
   --rule:         rgba(20, 36, 27, 0.13);
-  --rule-strong:  rgba(20, 36, 27, 0.26);
+  --rule-strong:  rgba(20, 36, 27, 0.24);
   --shadow-sm:    0 1px 2px rgba(20, 36, 27, 0.06);
-  --shadow-md:    0 4px 16px rgba(20, 36, 27, 0.09);
-  --shadow-lg:    0 18px 48px rgba(20, 36, 27, 0.15);
+  --shadow-md:    0 4px 16px rgba(20, 36, 27, 0.08);
+  --shadow-lg:    0 18px 48px rgba(20, 36, 27, 0.13);
 
   /* --- TYPE --- */
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -250,7 +283,7 @@ p:last-child { margin-bottom: 0; }
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 231, 209, 0.94);
+  background: var(--cream-glass);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
 }
@@ -683,7 +716,7 @@ p:last-child { margin-bottom: 0; }
 .sheet-head,
 .sheet-row {
   display: grid;
-  grid-template-columns: 2.2fr 1fr 1.2fr 1fr auto;
+  grid-template-columns: 2.2fr 1.4fr 1.2fr auto;   /* 4 cols since the rate/amount/tenure columns came out */
   gap: 20px;
   align-items: center;
   padding-block: 22px;
@@ -1227,7 +1260,7 @@ p:last-child { margin-bottom: 0; }
    a strong highlight stops reading as "pending" and starts reading as
    "broken". A dotted rule plus the faintest tint is enough to find them. */
 .tbc {
-  background: rgba(207, 156, 53, 0.10);
+  background: var(--gold-soft);
   border-bottom: 1px dotted var(--gold);
   padding: 0 2px;
   cursor: help;

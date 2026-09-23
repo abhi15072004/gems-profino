@@ -29,10 +29,6 @@
 
 <body data-product="Home Loan">
 
-<!-- PROTOTYPE ONLY — delete this one line before the site goes live. -->
-<div class="proto-banner">
-  <strong>PROTOTYPE</strong> · Highlighted figures are sample content awaiting client confirmation · Not for public release
-</div>
 
 <header class="site-head">
   <div class="container head-inner">
@@ -57,6 +53,7 @@
       </div>
       <a href="index.html#how">How it works</a>
       <a href="about.html">About</a>
+      <a href="partner.html">Partner</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -75,10 +72,10 @@
     <p class="lede">For buying a flat or plot, building on land you own, or moving an existing loan to a cheaper rate.</p>
 
     <dl class="facts">
-      <div><dt>Rate from</dt><dd class="tbc" title="Placeholder rate">8.50%</dd></div>
-      <div><dt>Amount</dt><dd class="tbc" title="Awaiting client confirmation">₹5 L – ₹5 Cr</dd></div>
-      <div><dt>Tenure up to</dt><dd class="tbc" title="Awaiting client confirmation">30 years</dd></div>
-      <div><dt>Processing fee</dt><dd class="tbc" title="Awaiting client confirmation">0.25% – 1%</dd></div>
+      <div><dt>Lenders</dt><dd>100+ banks &amp; NBFCs</dd></div>
+      <div><dt>To start</dt><dd>Aadhaar, PAN, 6-month statement</dd></div>
+      <div><dt>Balance transfer</dt><dd>Available</dd></div>
+      <div><dt>Callback</dt><dd>Within 30 min, 9am&ndash;9pm</dd></div>
     </dl>
 
     <div class="btn-row" style="margin-top:32px">
@@ -125,24 +122,29 @@
   </div>
 </section>
 
+<!-- Was an eligibility table. The client publishes no eligibility
+     criteria, so on 23 Sep 2026 the slot was given to balance transfer,
+     which they do offer on every product. -->
 <section class="block block--paper">
-  <div class="container">
-    <div class="block-head">
-      <p class="eyebrow">Eligibility</p>
-      <h2>What lenders usually look for.</h2>
-      <p class="lede">
-        These are the usual thresholds. Lenders differ, and a profile that one
-        bank declines another will approve — which is the whole reason to ask us
-        first.
-      </p>
+  <div class="container two-col">
+    <div>
+      <p class="eyebrow">Balance transfer</p>
+      <h2>Already paying a home loan?</h2>
+      <p>A balance transfer moves your existing home loan to a different
+        lender. Over a twenty-year loan even a small rate difference is a large
+        amount of money &mdash; but a transfer also carries the new lender's
+        processing fee, fresh legal and valuation checks, and a stack of
+        paperwork. It is worth doing when enough tenure is left for the saving
+        to clear those costs comfortably.</p>
     </div>
-
-    <dl class="facts">
-      <div><dt>Age</dt><dd class="tbc" title="Awaiting client confirmation">21 – 65 years</dd></div>
-      <div><dt>CIBIL score</dt><dd class="tbc" title="Awaiting client confirmation">700+ preferred</dd></div>
-      <div><dt>Employment</dt><dd class="tbc" title="Awaiting client confirmation">2+ years</dd></div>
-      <div><dt>Funding</dt><dd class="tbc" title="Awaiting client confirmation">Up to 90% of value</dd></div>
-    </dl>
+    <div>
+      <ul class="check" style="margin-top:24px">
+        <li>Bring your current sanction letter and the last 12 months of loan statements</li>
+        <li>We work out the actual saving, after the new lender's fees, before you commit</li>
+        <li>A top-up on the transferred loan is often possible at the same time</li>
+        <li>If the numbers do not work, we will tell you to stay where you are</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -152,9 +154,10 @@
       <p class="eyebrow">Estimate</p>
       <h2>What would it cost a month?</h2>
       <p class="lede">
-        Move the sliders to see an indicative EMI. The rate used here is our
-        current starting rate for a home loan — yours depends on the lender,
-        your income and your credit history.
+        Move the sliders, including the rate, to see what an EMI would look
+        like. We do not quote rates &mdash; your rate is set by the lender, on
+        your income and your credit history. Put in a figure you have been
+        quoted, or one you want to test.
       </p>
       <p style="margin-top:24px;font-size:0.9rem;color:var(--ink-soft)">
         We will give you the real number, from a named lender, before you
@@ -190,6 +193,17 @@
         <div class="slip-scale" id="slip-years-scale"><span>1 yr</span><span>30 yrs</span></div>
       </div>
 
+      <div class="slip-field">
+        <div class="slip-field-top">
+          <label class="slip-label" for="slip-rate">Interest rate</label>
+          <output class="slip-value" for="slip-rate" data-out-rate-label>9.50%</output>
+        </div>
+        <input class="slip-range" id="slip-rate" type="range"
+               min="6" max="24" step="0.05" value="9.5"
+               data-slip-rate aria-describedby="slip-rate-scale">
+        <div class="slip-scale" id="slip-rate-scale"><span>6%</span><span>24%</span></div>
+      </div>
+
       <hr class="slip-rule">
 
       <div class="slip-out">
@@ -198,7 +212,7 @@
           <p class="slip-emi" data-out-emi></p>
         </div>
         <p class="slip-emi-note">
-          at <span class="tbc" data-out-rate title="Placeholder rate"></span> p.a.
+          at <span data-out-rate></span> p.a.
         </p>
       </div>
 
@@ -212,7 +226,8 @@
       </a>
 
       <p class="slip-foot">
-        Indicative only, and not an offer of credit.
+        Indicative only, and not an offer of credit. The rate above is the one
+        you set &mdash; not a rate we are offering.
       </p>
     </div>
   </div>
@@ -227,7 +242,7 @@
     <div class="faq">
       <details>
         <summary>How much can I borrow against my income?</summary>
-        <div>Most lenders keep your total EMIs under 50–60% of your monthly income, and fund up to <span class="tbc" title="Awaiting client confirmation">90% of the property value</span>. Both limits apply, so the lower one decides your amount. An existing car or personal loan reduces what you can take.</div>
+        <div>Two limits apply at once, and the lower of the two decides it: what share of the property value the lender will fund, and how much of your monthly income it will let your EMIs take up. Both vary by lender and by your profile. An existing car or personal loan reduces what you can take. We will tell you the figure the lender actually gives, not an estimate.</div>
       </details>
 
       <details>
@@ -266,7 +281,6 @@
       <ul class="check" style="margin-top:32px;max-width:420px">
         <li>No documents needed for the first call</li>
         <li>No effect on your credit score</li>
-        <li><span class="tbc" title="Awaiting client confirmation">No charge to you at any stage</span></li>
       </ul>
     </div>
 
@@ -327,9 +341,9 @@
           <label class="consent" for="f-consent">
             <input id="f-consent" type="checkbox" name="consent" value="yes" required>
             <span>
-              I authorise GEMS Profino and its banking partners to contact me by
-              phone, SMS or WhatsApp about this enquiry, including where my number
-              is registered under DND or NDNC. See our
+              I authorise GEMS Profino, Urban Money and their lending partners
+              to contact me by phone, SMS or WhatsApp about this enquiry,
+              including where my number is registered under DND or NDNC. See our
               <a href="privacy-policy.html">privacy policy</a>.
             </span>
           </label>
@@ -392,17 +406,18 @@
           <li><a data-wa href="#" rel="noopener">WhatsApp</a></li>
           <li><a href="https://instagram.com/gemsprofino" rel="noopener">Instagram</a></li>
           <li><a href="https://facebook.com/gemsprofino" rel="noopener">Facebook</a></li>
-          <li class="tbc" title="Awaiting office address">Chennai, Tamil Nadu</li>
+          <li>Chennai &middot; serving South India</li>
         </ul>
       </div>
     </div>
 
     <p class="disclaimer">
-      <strong>Disclaimer.</strong> GEMS Profino is a loan facilitator and Direct
-      Selling Agent. We are not a bank, NBFC or lender, and we do not lend money.
-      Loan approval, interest rate and final terms are decided solely by the
-      respective bank or NBFC. Rates and figures on this site are indicative and
-      do not constitute an offer of credit.
+      <strong>Disclaimer.</strong> GEMS Profino is a loan facilitator and an
+      authorised channel partner of Urban Money, a lending service provider. We
+      are not a bank, an NBFC or a lender, and we do not lend money. Loan
+      approval, interest rate and final terms are decided solely by the
+      respective bank or NBFC. This site does not quote interest rates, and
+      nothing on it constitutes an offer of credit.
     </p>
 
     <div class="foot-bottom">

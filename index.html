@@ -49,10 +49,6 @@
 
 <body>
 
-<!-- PROTOTYPE ONLY — delete this one line before the site goes live. -->
-<div class="proto-banner">
-  <strong>PROTOTYPE</strong> · Highlighted figures are sample content awaiting client confirmation · Not for public release
-</div>
 
 <header class="site-head">
   <div class="container head-inner">
@@ -77,6 +73,7 @@
       </div>
       <a href="#how">How it works</a>
       <a href="about.html">About</a>
+      <a href="partner.html">Partner</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -93,7 +90,7 @@
   <div class="container hero-grid">
     <div>
       <p class="eyebrow rise rise--1">
-        Chennai &amp; Tamil Nadu · <span class="tbc" title="Awaiting client confirmation">18 banking partners</span>
+        South India &middot; 100+ banks &amp; NBFCs
       </p>
 
       <h1 class="rise rise--2">Finding the lender who will <span class="accent">say yes</span>.</h1>
@@ -110,9 +107,9 @@
       </div>
 
       <ul class="hero-assure rise rise--5">
-        <li><span class="tbc" title="Awaiting client confirmation">No upfront charges</span></li>
-        <li><span class="tbc" title="Awaiting client confirmation">Documents collected from your home</span></li>
-        <li><span class="tbc" title="Awaiting client confirmation">Callback within 30 minutes</span></li>
+        <li>Three documents to start</li>
+        <li>Documents collected from your home</li>
+        <li>Callback within 30 minutes, 9am&ndash;9pm</li>
       </ul>
     </div>
 
@@ -145,6 +142,17 @@
         <div class="slip-scale" id="slip-years-scale"><span>1 yr</span><span>30 yrs</span></div>
       </div>
 
+      <div class="slip-field">
+        <div class="slip-field-top">
+          <label class="slip-label" for="slip-rate">Interest rate</label>
+          <output class="slip-value" for="slip-rate" data-out-rate-label>9.50%</output>
+        </div>
+        <input class="slip-range" id="slip-rate" type="range"
+               min="6" max="24" step="0.05" value="9.5"
+               data-slip-rate aria-describedby="slip-rate-scale">
+        <div class="slip-scale" id="slip-rate-scale"><span>6%</span><span>24%</span></div>
+      </div>
+
       <hr class="slip-rule">
 
       <div class="slip-out">
@@ -153,7 +161,7 @@
           <p class="slip-emi" data-out-emi>₹46,606</p>
         </div>
         <p class="slip-emi-note">
-          at <span class="tbc" data-out-rate title="Placeholder rate">9.50%</span> p.a.
+          at <span data-out-rate>9.50%</span> p.a.
         </p>
       </div>
 
@@ -173,50 +181,50 @@
       </a>
 
       <p class="slip-foot">
-        Indicative only. Your actual rate depends on the lender, your income and
-        your credit history — we will tell you the real number before you commit
-        to anything.
+        Indicative only, and not an offer of credit. The rate above is the one
+        you set on the slider — we do not quote rates. Your actual rate is
+        decided by the lender, on your income and credit history.
       </p>
     </div>
   </div>
 </section>
 
 <!-- ======================= LENDER RAIL ======================= -->
-<section class="rail" aria-label="Lending partners">
+<section class="rail" aria-label="How applications are placed">
   <div class="container rail-inner">
-    <p class="rail-label">We place files with</p>
+    <p class="rail-label">Applications placed through</p>
     <ul class="rail-list">
-      <li class="tbc" title="Awaiting partner list and logo permission">HDFC</li>
-      <li class="tbc" title="Awaiting partner list and logo permission">ICICI</li>
-      <li class="tbc" title="Awaiting partner list and logo permission">Axis</li>
-      <li class="tbc" title="Awaiting partner list and logo permission">SBI</li>
-      <li class="tbc" title="Awaiting partner list and logo permission">Bajaj Finserv</li>
-      <li class="tbc" title="Awaiting partner list and logo permission">LIC HFL</li>
-      <li class="tbc" title="Awaiting partner list and logo permission">Tata Capital</li>
-      <li class="tbc" title="Awaiting partner list and logo permission">IDFC First</li>
-      <li class="tbc" title="Awaiting partner list">+ 10 more</li>
+      <li>Urban Money</li>
+      <li>100+ banks &amp; NBFCs</li>
+      <li>RBI-regulated lenders</li>
     </ul>
   </div>
 </section>
 
-<!-- ======================= RATE SHEET ======================= -->
+<!-- ======================= LOAN SHEET =======================
+     Was a rate sheet. The client does not publish rates, amounts, tenures or
+     processing fees — those are the lender's, not GEMS Profino's — so the
+     numeric columns were replaced on 23 Sep 2026 with information that is
+     both true and useful: the extra paperwork each product needs, and the
+     balance-transfer option the client added.
+     ========================================================== -->
 <section class="block" id="loans">
   <div class="container">
     <div class="block-head">
       <p class="eyebrow">What we arrange</p>
       <h2>Five loans, one file.</h2>
       <p class="lede">
-        Rates below are the lowest we currently place at. Which one you get
-        depends on the lender and your profile.
+        Balance transfer is available on every one of them. What you qualify
+        for is the lender's decision — our job is to put your file in front of
+        the lender most likely to approve it.
       </p>
     </div>
 
     <div class="sheet reveal">
       <div class="sheet-head">
         <span>Loan</span>
-        <span>From</span>
-        <span>Amount</span>
-        <span>Tenure</span>
+        <span>Also bring</span>
+        <span>Balance transfer</span>
         <span></span>
       </div>
 
@@ -225,10 +233,9 @@
           <strong>Home Loan</strong>
           <span>Buying, building or transferring a balance</span>
         </span>
-        <span class="sheet-val tbc" title="Placeholder rate">8.50%<em>p.a.</em></span>
-        <span class="sheet-val tbc" title="Placeholder">₹5 L – ₹5 Cr</span>
-        <span class="sheet-val tbc" title="Placeholder">30 yrs<em>max</em></span>
-        <span class="sheet-go" aria-hidden="true">→</span>
+        <span class="sheet-val">Property papers</span>
+        <span class="sheet-val">Available</span>
+        <span class="sheet-go" aria-hidden="true">&rarr;</span>
       </a>
 
       <a class="sheet-row" href="property-loan.html">
@@ -236,10 +243,9 @@
           <strong>Property Loan</strong>
           <span>Raise funds against property you already own</span>
         </span>
-        <span class="sheet-val tbc" title="Placeholder rate">9.50%<em>p.a.</em></span>
-        <span class="sheet-val tbc" title="Placeholder">₹10 L – ₹10 Cr</span>
-        <span class="sheet-val tbc" title="Placeholder">15 yrs<em>max</em></span>
-        <span class="sheet-go" aria-hidden="true">→</span>
+        <span class="sheet-val">Property papers</span>
+        <span class="sheet-val">Available</span>
+        <span class="sheet-go" aria-hidden="true">&rarr;</span>
       </a>
 
       <a class="sheet-row" href="business-loan.html">
@@ -247,38 +253,36 @@
           <strong>Business Loan</strong>
           <span>Working capital, expansion, machinery</span>
         </span>
-        <span class="sheet-val tbc" title="Placeholder rate">14.00%<em>p.a.</em></span>
-        <span class="sheet-val tbc" title="Placeholder">₹1 L – ₹2 Cr</span>
-        <span class="sheet-val tbc" title="Placeholder">5 yrs<em>max</em></span>
-        <span class="sheet-go" aria-hidden="true">→</span>
+        <span class="sheet-val">GST returns or ITR</span>
+        <span class="sheet-val">Available</span>
+        <span class="sheet-go" aria-hidden="true">&rarr;</span>
       </a>
 
       <a class="sheet-row" href="car-loan-new.html">
         <span class="sheet-name">
-          <strong>Car Loan — New</strong>
-          <span>Up to 100% on-road funding</span>
+          <strong>Car Loan &mdash; New</strong>
+          <span>Dealer quotation to disbursal</span>
         </span>
-        <span class="sheet-val tbc" title="Placeholder rate">9.00%<em>p.a.</em></span>
-        <span class="sheet-val tbc" title="Placeholder">₹1 L – ₹1 Cr</span>
-        <span class="sheet-val tbc" title="Placeholder">7 yrs<em>max</em></span>
-        <span class="sheet-go" aria-hidden="true">→</span>
+        <span class="sheet-val">Vehicle quotation</span>
+        <span class="sheet-val">Available</span>
+        <span class="sheet-go" aria-hidden="true">&rarr;</span>
       </a>
 
       <a class="sheet-row" href="car-loan-used.html">
         <span class="sheet-name">
-          <strong>Car Loan — Used</strong>
+          <strong>Car Loan &mdash; Used</strong>
           <span>Pre-owned cars, dealer or private sale</span>
         </span>
-        <span class="sheet-val tbc" title="Placeholder rate">12.50%<em>p.a.</em></span>
-        <span class="sheet-val tbc" title="Placeholder">₹1 L – ₹50 L</span>
-        <span class="sheet-val tbc" title="Placeholder">5 yrs<em>max</em></span>
-        <span class="sheet-go" aria-hidden="true">→</span>
+        <span class="sheet-val">RC and valuation</span>
+        <span class="sheet-val">Available</span>
+        <span class="sheet-go" aria-hidden="true">&rarr;</span>
       </a>
     </div>
 
     <p class="sheet-note">
-      Rates shown are indicative starting rates and are not an offer of credit.
-      Final terms are set by the lender after assessing your application.
+      Every application starts with the same three documents &mdash; Aadhaar,
+      PAN and six months of bank statements. Anything else depends on the
+      product and the lender, and we will tell you before you need it.
     </p>
   </div>
 </section>
@@ -333,29 +337,9 @@
   </div>
 </section>
 
-<!-- ======================= STATS ======================= -->
-<section class="block block--tight block--dark">
-  <div class="container">
-    <dl class="stats reveal">
-      <div>
-        <dt>Loans arranged</dt>
-        <dd class="tbc" title="Awaiting client figure">1,200+</dd>
-      </div>
-      <div>
-        <dt>Disbursed</dt>
-        <dd class="tbc" title="Awaiting client figure">₹340 Cr</dd>
-      </div>
-      <div>
-        <dt>Banking partners</dt>
-        <dd class="tbc" title="Awaiting client figure">18</dd>
-      </div>
-      <div>
-        <dt>Serving Chennai since</dt>
-        <dd class="tbc" title="Awaiting client figure">2016</dd>
-      </div>
-    </dl>
-  </div>
-</section>
+<!-- STATS strip removed 23 Sep 2026 — the business was registered on
+     31 Aug 2026, so "loans arranged", "disbursed" and "serving since" had
+     no true value to carry. Restore only when real figures exist. -->
 
 <!-- ======================= PROCESS ======================= -->
 <section class="block" id="how">
@@ -386,51 +370,9 @@
   </div>
 </section>
 
-<!-- ======================= TESTIMONIALS ======================= -->
-<section class="block block--paper">
-  <div class="container">
-    <div class="block-head">
-      <p class="eyebrow">Customers · <span class="tbc" title="Sample content — real testimonials required">sample content</span></p>
-      <h2>What people say.</h2>
-    </div>
-
-    <div class="quotes reveal">
-      <figure class="quote tbc" title="Placeholder testimonial — replace with a real one">
-        <blockquote>
-          Two banks had already turned me down because I am self-employed. GEMS
-          Profino knew which lender would look at my bank statements instead of
-          my ITR, and it was sanctioned in eleven days.
-        </blockquote>
-        <figcaption>
-          <strong>Sample Name</strong>
-          <span>Chennai · Business Loan</span>
-        </figcaption>
-      </figure>
-
-      <figure class="quote tbc" title="Placeholder testimonial — replace with a real one">
-        <blockquote>
-          I did not go to a single bank branch. They collected the documents
-          from my office, told me what was missing, and called me at every stage.
-        </blockquote>
-        <figcaption>
-          <strong>Sample Name</strong>
-          <span>Chennai · Home Loan</span>
-        </figcaption>
-      </figure>
-
-      <figure class="quote tbc" title="Placeholder testimonial — replace with a real one">
-        <blockquote>
-          The rate they quoted at the start was the rate I signed at. Nothing
-          appeared later that I had not been told about.
-        </blockquote>
-        <figcaption>
-          <strong>Sample Name</strong>
-          <span>Chennai · Property Loan</span>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
+<!-- TESTIMONIALS removed 23 Sep 2026 — no customers yet, and invented
+     quotes are a legal and reputational risk. Restore when the client
+     supplies three to five genuine ones. -->
 
 <!-- ======================= FAQ ======================= -->
 <section class="block">
@@ -441,16 +383,6 @@
     </div>
 
     <div class="faq reveal">
-      <details>
-        <summary>What do you charge me?</summary>
-        <div>
-          <span class="tbc" title="Awaiting client confirmation">Nothing. We are paid a commission by the
-          lender once your loan is disbursed, so there is no fee for you at any
-          stage.</span> If a lender charges a processing fee, that is theirs and
-          we will tell you the amount before you apply.
-        </div>
-      </details>
-
       <details>
         <summary>Will enquiring here affect my credit score?</summary>
         <div>
@@ -473,9 +405,11 @@
       <details>
         <summary>How long does it take?</summary>
         <div>
-          <span class="tbc" title="Awaiting client confirmation">A car loan can be sanctioned in two or three days.
-          Home and property loans typically take two to four weeks, because they
-          involve valuation and a legal check on the property.</span>
+          It depends on the product. A car loan moves fastest. Home and
+          property loans take longest, because the lender has to value the
+          property and run a legal check on it. We push for a quick decision
+          and tell you where your file actually stands &mdash; we will not
+          promise you a date the lender has not given us.
         </div>
       </details>
 
@@ -492,9 +426,10 @@
       <details>
         <summary>Which areas do you cover?</summary>
         <div>
-          <span class="tbc" title="Awaiting service-area confirmation">Chennai and the surrounding districts,
-          with selected lenders across Tamil Nadu.</span> Call us to check your
-          location.
+          We are based in Chennai and take applications across South India
+          &mdash; Tamil Nadu, Puducherry, Kerala, Karnataka, Andhra Pradesh and
+          Telangana. Doorstep document collection is offered in Chennai and
+          Tamil Nadu; elsewhere we handle the file digitally.
         </div>
       </details>
     </div>
@@ -515,7 +450,6 @@
       <ul class="check" style="margin-top:32px;max-width:420px">
         <li>No documents needed for the first call</li>
         <li>No effect on your credit score</li>
-        <li><span class="tbc" title="Awaiting client confirmation">No charge to you at any stage</span></li>
       </ul>
     </div>
 
@@ -578,9 +512,9 @@
           <label class="consent" for="f-consent">
             <input id="f-consent" type="checkbox" name="consent" value="yes" required>
             <span>
-              I authorise GEMS Profino and its banking partners to contact me by
-              phone, SMS or WhatsApp about this enquiry, including where my number
-              is registered under DND or NDNC. See our
+              I authorise GEMS Profino, Urban Money and their lending partners
+              to contact me by phone, SMS or WhatsApp about this enquiry,
+              including where my number is registered under DND or NDNC. See our
               <a href="privacy-policy.html">privacy policy</a>.
             </span>
           </label>
@@ -644,17 +578,18 @@
           <li><a data-wa href="#" rel="noopener">WhatsApp</a></li>
           <li><a href="https://instagram.com/gemsprofino" rel="noopener">Instagram</a></li>
           <li><a href="https://facebook.com/gemsprofino" rel="noopener">Facebook</a></li>
-          <li class="tbc" title="Awaiting office address">Chennai, Tamil Nadu</li>
+          <li>Chennai &middot; serving South India</li>
         </ul>
       </div>
     </div>
 
     <p class="disclaimer">
-      <strong>Disclaimer.</strong> GEMS Profino is a loan facilitator and Direct
-      Selling Agent. We are not a bank, NBFC or lender, and we do not lend money.
-      Loan approval, interest rate and final terms are decided solely by the
-      respective bank or NBFC. Rates and figures on this site are indicative and
-      do not constitute an offer of credit.
+      <strong>Disclaimer.</strong> GEMS Profino is a loan facilitator and an
+      authorised channel partner of Urban Money, a lending service provider. We
+      are not a bank, an NBFC or a lender, and we do not lend money. Loan
+      approval, interest rate and final terms are decided solely by the
+      respective bank or NBFC. This site does not quote interest rates, and
+      nothing on it constitutes an offer of credit.
     </p>
 
     <div class="foot-bottom">
@@ -682,14 +617,21 @@
   "url": "https://gemsprofino.com/",
   "logo": "https://gemsprofino.com/assets/img/logo.png",
   "telephone": "+91-98415-25074",
-  "areaServed": { "@type": "State", "name": "Tamil Nadu" },
+  "areaServed": [
+    { "@type": "State", "name": "Tamil Nadu" },
+    { "@type": "State", "name": "Kerala" },
+    { "@type": "State", "name": "Karnataka" },
+    { "@type": "State", "name": "Andhra Pradesh" },
+    { "@type": "State", "name": "Telangana" },
+    { "@type": "State", "name": "Puducherry" }
+  ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "PLACEHOLDER — awaiting client address",
     "addressLocality": "Chennai",
     "addressRegion": "Tamil Nadu",
     "addressCountry": "IN"
   },
+  "openingHours": "Mo-Sa 09:00-21:00",
   "sameAs": [
     "https://instagram.com/gemsprofino",
     "https://facebook.com/gemsprofino"

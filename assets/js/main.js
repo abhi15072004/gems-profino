@@ -21,19 +21,13 @@
     // shows the success page, but sends nothing.
     formKey: 'REPLACE_WITH_WEB3FORMS_ACCESS_KEY',
 
-    // Indicative rates used by the EMI estimate, per product.
-    // PLACEHOLDER VALUES — replace with the client's actual rates.
-    rates: {
-      'Home Loan':     8.5,
-      'Property Loan': 9.5,
-      'Business Loan': 14.0,
-      'Car Loan (New)': 9.0,
-      'Car Loan (Used)': 12.5,
-      'default':       9.5
-    },
-
-    // Shown on the slip as "lenders matched". PLACEHOLDER.
-    lenderCount: 18
+    // Where the estimate's rate slider STARTS. This is only an opening
+    // position for the visitor to drag — the site publishes no rate of its
+    // own, because GEMS Profino does not set rates: the lender does.
+    // Changing this number changes nothing we claim.
+    startRate: 9.5,
+    minRate:   6,
+    maxRate:   24
   };
 
   var $  = function (sel, root) { return (root || document).querySelector(sel); };
@@ -131,23 +125,25 @@
 
     var amtEl    = $('[data-slip-amount]', slip);
     var yrsEl    = $('[data-slip-years]', slip);
+    var rateEl   = $('[data-slip-rate]', slip);
     var amtOut   = $('[data-out-amount]', slip);
     var yrsOut   = $('[data-out-years]', slip);
     var emiOut   = $('[data-out-emi]', slip);
     var rateOut  = $('[data-out-rate]', slip);
+    var rateLbl  = $('[data-out-rate-label]', slip);
     var intOut   = $('[data-out-interest]', slip);
     var totalOut = $('[data-out-total]', slip);
-    var lendOut  = $('[data-out-lenders]', slip);
 
     if (!amtEl || !yrsEl) return;
 
     // The product this slip is estimating for — set per page.
     var product = slip.getAttribute('data-product') || 'default';
-    var rate = CONFIG.rates[product] || CONFIG.rates['default'];
 
     function render() {
       var amount = Number(amtEl.value);
       var years  = Number(yrsEl.value);
+      // The visitor sets the rate. We do not supply one.
+      var rate   = rateEl ? Number(rateEl.value) : CONFIG.startRate;
       var emi    = emiFor(amount, rate, years);
       var total  = emi * years * 12;
 
@@ -155,13 +151,14 @@
       if (yrsOut)   yrsOut.textContent   = years + (years === 1 ? ' year' : ' years');
       if (emiOut)   emiOut.textContent   = inr(emi);
       if (rateOut)  rateOut.textContent  = rate.toFixed(2) + '%';
+      if (rateLbl)  rateLbl.textContent  = rate.toFixed(2) + '%';
       if (intOut)   intOut.textContent   = '₹' + compact(total - amount);
       if (totalOut) totalOut.textContent = '₹' + compact(total);
-      if (lendOut)  lendOut.textContent  = String(CONFIG.lenderCount);
     }
 
     amtEl.addEventListener('input', render);
     yrsEl.addEventListener('input', render);
+    if (rateEl) rateEl.addEventListener('input', render);
 
     // Carry the estimate into the enquiry form, so a lead arrives with intent
     var jump = $('[data-slip-apply]', slip);

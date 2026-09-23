@@ -29,10 +29,6 @@
 
 <body data-product="Car Loan (Used)">
 
-<!-- PROTOTYPE ONLY — delete this one line before the site goes live. -->
-<div class="proto-banner">
-  <strong>PROTOTYPE</strong> · Highlighted figures are sample content awaiting client confirmation · Not for public release
-</div>
 
 <header class="site-head">
   <div class="container head-inner">
@@ -57,6 +53,7 @@
       </div>
       <a href="index.html#how">How it works</a>
       <a href="about.html">About</a>
+      <a href="partner.html">Partner</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -75,10 +72,10 @@
     <p class="lede">Used car funding is decided by the lender's valuation of the vehicle, not the price on the sticker. Knowing that before you negotiate puts you in a better position.</p>
 
     <dl class="facts">
-      <div><dt>Rate from</dt><dd class="tbc" title="Placeholder rate">12.50%</dd></div>
-      <div><dt>Amount</dt><dd class="tbc" title="Awaiting client confirmation">₹1 L – ₹50 L</dd></div>
-      <div><dt>Tenure up to</dt><dd class="tbc" title="Awaiting client confirmation">5 years</dd></div>
-      <div><dt>Processing fee</dt><dd class="tbc" title="Awaiting client confirmation">1% – 2%</dd></div>
+      <div><dt>Lenders</dt><dd>100+ banks &amp; NBFCs</dd></div>
+      <div><dt>To start</dt><dd>Aadhaar, PAN, 6-month statement</dd></div>
+      <div><dt>Balance transfer</dt><dd>Available</dd></div>
+      <div><dt>Callback</dt><dd>Within 30 min, 9am&ndash;9pm</dd></div>
     </dl>
 
     <div class="btn-row" style="margin-top:32px">
@@ -124,24 +121,28 @@
   </div>
 </section>
 
+<!-- Was an eligibility table. The client publishes no eligibility
+     criteria, so on 23 Sep 2026 the slot was given to balance transfer,
+     which they do offer on every product. -->
 <section class="block block--paper">
-  <div class="container">
-    <div class="block-head">
-      <p class="eyebrow">Eligibility</p>
-      <h2>What is assessed.</h2>
-      <p class="lede">
-        These are the usual thresholds. Lenders differ, and a profile that one
-        bank declines another will approve — which is the whole reason to ask us
-        first.
-      </p>
+  <div class="container two-col">
+    <div>
+      <p class="eyebrow">Balance transfer</p>
+      <h2>Already paying off a car loan?</h2>
+      <p>A balance transfer moves it to another lender. On a pre-owned
+        car the original rate is usually higher, so there is often more room to
+        improve it &mdash; but the vehicle's age and current valuation decide
+        what any new lender will offer, and the saving still has to clear the
+        transfer costs.</p>
     </div>
-
-    <dl class="facts">
-      <div><dt>Age</dt><dd class="tbc" title="Awaiting client confirmation">21 – 65 years</dd></div>
-      <div><dt>CIBIL score</dt><dd class="tbc" title="Awaiting client confirmation">700+ preferred</dd></div>
-      <div><dt>Vehicle age</dt><dd class="tbc" title="Awaiting client confirmation">Up to 8 – 10 years</dd></div>
-      <div><dt>Funding</dt><dd class="tbc" title="Awaiting client confirmation">70% – 85% of valuation</dd></div>
-    </dl>
+    <div>
+      <ul class="check" style="margin-top:24px">
+        <li>Bring your sanction letter, loan statements, vehicle RC and a valuation</li>
+        <li>The car's age at transfer is what limits the offer</li>
+        <li>We check the saving against the fee and re-hypothecation cost</li>
+        <li>If it does not pay, we will tell you plainly</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -151,9 +152,10 @@
       <p class="eyebrow">Estimate</p>
       <h2>What would it cost a month?</h2>
       <p class="lede">
-        Move the sliders to see an indicative EMI. The rate used here is our
-        current starting rate for a car loan (used) — yours depends on the lender,
-        your income and your credit history.
+        Move the sliders, including the rate, to see what an EMI would look
+        like. We do not quote rates &mdash; your rate is set by the lender, on
+        your income and your credit history. Put in a figure you have been
+        quoted, or one you want to test.
       </p>
       <p style="margin-top:24px;font-size:0.9rem;color:var(--ink-soft)">
         We will give you the real number, from a named lender, before you
@@ -189,6 +191,17 @@
         <div class="slip-scale" id="slip-years-scale"><span>1 yr</span><span>5 yrs</span></div>
       </div>
 
+      <div class="slip-field">
+        <div class="slip-field-top">
+          <label class="slip-label" for="slip-rate">Interest rate</label>
+          <output class="slip-value" for="slip-rate" data-out-rate-label>9.50%</output>
+        </div>
+        <input class="slip-range" id="slip-rate" type="range"
+               min="6" max="24" step="0.05" value="9.5"
+               data-slip-rate aria-describedby="slip-rate-scale">
+        <div class="slip-scale" id="slip-rate-scale"><span>6%</span><span>24%</span></div>
+      </div>
+
       <hr class="slip-rule">
 
       <div class="slip-out">
@@ -197,7 +210,7 @@
           <p class="slip-emi" data-out-emi></p>
         </div>
         <p class="slip-emi-note">
-          at <span class="tbc" data-out-rate title="Placeholder rate"></span> p.a.
+          at <span data-out-rate></span> p.a.
         </p>
       </div>
 
@@ -211,7 +224,8 @@
       </a>
 
       <p class="slip-foot">
-        Indicative only, and not an offer of credit.
+        Indicative only, and not an offer of credit. The rate above is the one
+        you set &mdash; not a rate we are offering.
       </p>
     </div>
   </div>
@@ -226,7 +240,7 @@
     <div class="faq">
       <details>
         <summary>How much of the price will be funded?</summary>
-        <div>Lenders fund <span class="tbc" title="Awaiting client confirmation">70% to 85% of their own valuation</span>, which is often below the asking price. Plan for a deposit, and ask us for an indicative valuation before you agree a price.</div>
+        <div>Lenders fund a share of their own valuation, which is often below the asking price — so plan for a deposit. Get the valuation checked before you agree a price with the seller, not after. We can have that done for you.</div>
       </details>
 
       <details>
@@ -265,7 +279,6 @@
       <ul class="check" style="margin-top:32px;max-width:420px">
         <li>No documents needed for the first call</li>
         <li>No effect on your credit score</li>
-        <li><span class="tbc" title="Awaiting client confirmation">No charge to you at any stage</span></li>
       </ul>
     </div>
 
@@ -326,9 +339,9 @@
           <label class="consent" for="f-consent">
             <input id="f-consent" type="checkbox" name="consent" value="yes" required>
             <span>
-              I authorise GEMS Profino and its banking partners to contact me by
-              phone, SMS or WhatsApp about this enquiry, including where my number
-              is registered under DND or NDNC. See our
+              I authorise GEMS Profino, Urban Money and their lending partners
+              to contact me by phone, SMS or WhatsApp about this enquiry,
+              including where my number is registered under DND or NDNC. See our
               <a href="privacy-policy.html">privacy policy</a>.
             </span>
           </label>
@@ -391,17 +404,18 @@
           <li><a data-wa href="#" rel="noopener">WhatsApp</a></li>
           <li><a href="https://instagram.com/gemsprofino" rel="noopener">Instagram</a></li>
           <li><a href="https://facebook.com/gemsprofino" rel="noopener">Facebook</a></li>
-          <li class="tbc" title="Awaiting office address">Chennai, Tamil Nadu</li>
+          <li>Chennai &middot; serving South India</li>
         </ul>
       </div>
     </div>
 
     <p class="disclaimer">
-      <strong>Disclaimer.</strong> GEMS Profino is a loan facilitator and Direct
-      Selling Agent. We are not a bank, NBFC or lender, and we do not lend money.
-      Loan approval, interest rate and final terms are decided solely by the
-      respective bank or NBFC. Rates and figures on this site are indicative and
-      do not constitute an offer of credit.
+      <strong>Disclaimer.</strong> GEMS Profino is a loan facilitator and an
+      authorised channel partner of Urban Money, a lending service provider. We
+      are not a bank, an NBFC or a lender, and we do not lend money. Loan
+      approval, interest rate and final terms are decided solely by the
+      respective bank or NBFC. This site does not quote interest rates, and
+      nothing on it constitutes an offer of credit.
     </p>
 
     <div class="foot-bottom">

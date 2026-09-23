@@ -1,23 +1,37 @@
 # GEMS Profino — lead-generation website
 
-Prototype built by **Foretek Solution and Services (OPC) Pvt Ltd** for GEMS
-Profino, a loan facilitator (DSA) in Chennai. Provided complimentary; the
-domain is purchased by the client.
+Built by **Foretek Solution and Services (OPC) Pvt Ltd** for GEMS Profino, a
+loan facilitator in Chennai and an authorised channel partner of Urban Money.
+Provided complimentary; the domain is purchased by the client.
+
+**Live:** <https://www.gemsprofino.com/>
 
 Plain HTML, CSS and JavaScript. No build step, no dependencies, no framework.
 Open `index.html` in a browser and it works.
 
 ---
 
-## This is a prototype
+## Status
 
-Every page carries a black banner reading `PROTOTYPE`, and every unconfirmed
-figure is marked with a dotted gold underline (`class="tbc"`, with the reason
-in its `title`). **Do not make this live while those are in place** — the rates,
-bank names and testimonials are sample content, and publishing them would be
-an inaccurate public claim.
+Live since 23 September 2026 with real client content. Every `class="tbc"`
+placeholder has been cleared, and the `PROTOTYPE` banner has been removed from
+all pages.
 
-What the client still owes us is listed in `../CLIENT_INFO_REQUIRED.txt`.
+**What the site deliberately does NOT publish**, on the client's instruction:
+
+| Not published | Why |
+|---|---|
+| Interest rates | GEMS Profino does not set rates; the lender does. The EMI estimate takes a rate from the visitor instead. |
+| Loan amounts, tenures, processing fees | Same reason. Quoting them would be a claim we cannot stand behind. |
+| Eligibility criteria | The client lists none. Note that "everyone qualifies" must never be written either — that reads as guaranteed approval. |
+| Named lenders and their logos | GEMS Profino reaches lenders through Urban Money and holds no logo licence. The site says "100+ banks & NBFCs". |
+| Whether we charge a fee | Client asked that fees not be addressed. Terms states only that any amount payable is disclosed in advance. |
+| Any track record | The business was registered 31 Aug 2026. Stats and testimonials were removed rather than invented. |
+
+If any of these come back, they come back with a written figure from the
+client — not an estimate.
+
+Outstanding items are listed in `../CLIENT_ANSWERS.md`.
 
 ---
 
@@ -116,10 +130,12 @@ confirm the email arrives.
 the creatives). It also appears in `tel:` links in each page's header, footer
 and mobile bar — search for `9841525074`.
 
-### 3. Real rates
-`assets/js/main.js` → `CONFIG.rates` drives the EMI estimates. The rates shown
-in the rate sheet and on each loan page are separate, in the HTML. Both must
-match what the client actually places at.
+### 3. Rates — not applicable
+
+The site publishes no rates, amounts, tenures or processing fees. The EMI
+estimate has a rate slider the visitor sets themselves, and `CONFIG.startRate`
+in `assets/js/main.js` only decides where that slider opens — it is not a claim.
+Do not reintroduce a published rate without a written figure from the client.
 
 ### 4. Tracking
 Each page has a commented-out block in `<head>`. Uncomment it and replace:
@@ -157,15 +173,10 @@ outstanding items are `index.html`, `contact.html` and `privacy-policy.html`.
 both, and nominate a grievance officer as the DPDP Act requires. Google and
 Meta will not approve finance ads without a reachable privacy policy.
 
-### 7. Remove the prototype banner
-One line in each of the 11 pages:
+### 7. Prototype banner — done
 
-```bash
-grep -rln 'proto-banner' *.html
-```
-
-Delete the `<div class="proto-banner">…</div>` block from each. Do this last —
-it is the safeguard against launching with sample rates.
+Removed from all pages on 23 September 2026. The `.proto-banner` rule is still
+in the stylesheet, unused, in case a future staging copy wants it.
 
 ### 8. Update the domain
 `https://gemsprofino.com` is assumed throughout — in `<link rel="canonical">`,
