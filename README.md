@@ -113,17 +113,21 @@ amounts and EMI figures). Change them in `:root` and in the Google Fonts
 
 ## Going live — checklist
 
-### 1. Enquiry delivery
-Create a free access key at [web3forms.com](https://web3forms.com) using the
-client's official email, then set it in `assets/js/main.js`:
+### 1. Enquiry delivery — done
 
-```js
-formKey: 'REPLACE_WITH_WEB3FORMS_ACCESS_KEY',
-```
+`CONFIG.formKey` in `assets/js/main.js` holds a live Web3Forms access key,
+registered to `gemsprofino@gmail.com`. Enquiries are delivered there by email.
 
-Until this is set the form runs in **demo mode**: it validates, shows the
-thank-you page, and sends nothing. Send a test enquiry after setting it and
-confirm the email arrives.
+The key is a **public** key by design — Web3Forms access keys are meant to sit
+in client-side code, and it cannot be used to read past submissions. It is
+committed deliberately.
+
+Subject lines distinguish the two forms: the loan enquiry sends
+`Website enquiry: <product> — <name>`, and partner.html sends
+`Partner enquiry — <name>` via its hidden `enquiry_kind` field.
+
+If the key is ever cleared, the form silently reverts to **demo mode**: it
+validates, shows the thank-you page, and sends nothing.
 
 ### 2. Confirm the WhatsApp number
 `assets/js/main.js` → `CONFIG.whatsapp` (currently `919841525074`, taken from

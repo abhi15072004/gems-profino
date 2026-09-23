@@ -19,7 +19,7 @@
     // using the client's official email, then paste it here.
     // Until a real key is set, the form runs in demo mode: it validates and
     // shows the success page, but sends nothing.
-    formKey: 'REPLACE_WITH_WEB3FORMS_ACCESS_KEY',
+    formKey: '2df87223-c354-4a9f-8ac5-9154947fcf31',
 
     // Where the estimate's rate slider STARTS. This is only an opening
     // position for the visitor to drag — the site publishes no rate of its
@@ -345,7 +345,10 @@
 
     var data = new FormData(form);
     data.append('access_key', CONFIG.formKey);
-    data.append('subject', 'Website enquiry: ' + (lead.type || 'Loan') + ' — ' + lead.name);
+    var kind = $('input[name="enquiry_kind"]', form);
+    data.append('subject', kind && kind.value
+      ? kind.value + ' — ' + lead.name
+      : 'Website enquiry: ' + (lead.type || 'Loan') + ' — ' + lead.name);
     data.append('from_name', 'GEMS Profino website');
 
     fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
