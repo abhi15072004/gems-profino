@@ -15,11 +15,24 @@
     // Taken from the client's creatives. CONFIRM before launch.
     whatsapp: '919841525074',
 
-    // Web3Forms access key. Create a free key at https://web3forms.com
-    // using the client's official email, then paste it here.
-    // Until a real key is set, the form runs in demo mode: it validates and
-    // shows the success page, but sends nothing.
-    formKey: '2df87223-c354-4a9f-8ac5-9154947fcf31',
+    // Web3Forms access keys, one per inbox. Every lead is emailed to each.
+    // With no keys the form sends nothing: demo success on localhost, a
+    // visible error (with a WhatsApp link) everywhere else.
+    formKeys: [
+      ''    // client: gemsprofino@gmail.com — paste the key from Satyam
+    ],
+
+    // Tracking IDs. Paste each one in as it arrives; blanks are skipped.
+    //   ga4       : GA4 Measurement ID           e.g. 'G-AB12CD34EF'
+    //   adsId     : Google Ads conversion ID     e.g. 'AW-123456789'
+    //   adsLabel  : label of the "Lead - enquiry form" conversion action
+    //   metaPixel : Meta Pixel ID                e.g. '123456789012345'
+    tracking: {
+      ga4:       '',
+      adsId:     '',
+      adsLabel:  '',
+      metaPixel: ''
+    },
 
     // Where the estimate's rate slider STARTS. This is only an opening
     // position for the visitor to drag — the site publishes no rate of its
@@ -44,30 +57,78 @@
 
   // 2500000 -> "25 L", 12000000 -> "1.2 Cr"
   function compact(n) {
-    if (n >= 10000000) {
-      var cr = n / 10000000;
-      return (cr % 1 === 0 ? cr : cr.toFixed(2).replace(/0$/, '')) + ' Cr';
-    }
-    if (n >= 100000) {
-      var l = n / 100000;
-      return (l % 1 === 0 ? l : l.toFixed(1)) + ' L';
-    }
+    n = Math.round(n);
+    // Thresholds sit just below the unit, so 99.96 L reads "1 Cr", not "100.0 L"
+    if (n >= 9995000) return Number((n / 10000000).toFixed(2)) + ' Cr';
+    if (n >= 100000) return Number((n / 100000).toFixed(1)) + ' L';
     return n.toLocaleString('en-IN');
   }
 
   /* ------------------------------------------------------------------------
-     Analytics — safe no-ops until the real tags are installed.
-     These fire on every meaningful action so ad spend can be attributed.
+     Tracking tags — loaded from CONFIG.tracking, so every page gets them
+     from this one file. Any ID left blank is simply skipped. Tags load only
+     on the real domain (so local testing never pollutes the data); add
+     ?debug_tracking=1 to a URL to force them on anywhere.
+     ------------------------------------------------------------------------ */
+  function trackingAllowed() {
+    return /(^|\.)gemsprofino\.com$/.test(window.location.hostname) ||
+      /[?&]debug_tracking=1/.test(window.location.search);
+  }
+
+  function initTracking() {
+    var t = CONFIG.tracking;
+    if (!trackingAllowed()) return;
+
+    var gIds = [t.ga4, t.adsId].filter(Boolean);
+    if (gIds.length) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gIds[0];
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      gIds.forEach(function (id) { window.gtag('config', id); });
+    }
+
+    if (t.metaPixel) {
+      /* Meta's standard base code, unminified */
+      var fbq = window.fbq = function () {
+        fbq.callMethod ? fbq.callMethod.apply(fbq, arguments) : fbq.queue.push(arguments);
+      };
+      if (!window._fbq) window._fbq = fbq;
+      fbq.push = fbq; fbq.loaded = true; fbq.version = '2.0'; fbq.queue = [];
+      var p = document.createElement('script');
+      p.async = true;
+      p.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(p);
+      fbq('init', t.metaPixel);
+      fbq('track', 'PageView');
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     Analytics events — no-ops until the tags above are live.
+     `conversion` (thank-you page load) is the one that counts as a lead in
+     Google Ads and Meta; form-submit fires just before a redirect and can be
+     lost, so it is kept for GA4 only.
      ------------------------------------------------------------------------ */
   function track(name, params) {
     params = params || {};
+    var t = CONFIG.tracking;
     try {
       if (typeof window.gtag === 'function') {
         window.gtag('event', name, params);
+        if (name === 'conversion' && t.adsId && t.adsLabel) {
+          window.gtag('event', 'conversion', {
+            send_to: t.adsId + '/' + t.adsLabel, value: 1, currency: 'INR'
+          });
+        }
       }
       if (typeof window.fbq === 'function') {
-        var fbMap = { generate_lead: 'Lead', whatsapp_click: 'Contact', call_click: 'Contact' };
-        window.fbq('track', fbMap[name] || 'CustomEvent', params);
+        var fbMap = { conversion: 'Lead', whatsapp_click: 'Contact', call_click: 'Contact' };
+        if (fbMap[name]) window.fbq('track', fbMap[name], params);
+        else window.fbq('trackCustom', name, params);
       }
       if (window.dataLayer && typeof window.dataLayer.push === 'function') {
         window.dataLayer.push(Object.assign({ event: name }, params));
@@ -234,7 +295,11 @@
       var pageProduct = document.body.getAttribute('data-product');
       var urlType = new URLSearchParams(window.location.search).get('type');
       var wanted = urlType || pageProduct;
-      if (wanted) {
+      if (wanted && typeField.tagName === 'INPUT') {
+        // Hidden field on the short form: the page's product is already set in
+        // the markup, so only a ?type= in the URL overrides it.
+        if (urlType) typeField.value = urlType;
+      } else if (wanted) {
         $$('option', typeField).forEach(function (o) {
           if (o.value.toLowerCase() === wanted.toLowerCase()) typeField.value = o.value;
         });
@@ -337,29 +402,71 @@
       status.appendChild(document.createTextNode('.'));
     }
 
-    // Demo mode — no key configured yet, so nothing is actually sent.
-    if (!CONFIG.formKey || CONFIG.formKey.indexOf('REPLACE_WITH') === 0) {
-      setTimeout(succeed, 550);
+    // No key configured. Locally this is demo mode (fake success, nothing
+    // sent). Anywhere else it must fail visibly: a fake success on the live
+    // site would tell a customer we have their enquiry when nobody does.
+    var keys = CONFIG.formKeys.filter(Boolean);
+    if (!keys.length) {
+      if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) {
+        setTimeout(succeed, 550);
+      } else {
+        fail('We could not send that just now.');
+      }
       return;
     }
 
-    var data = new FormData(form);
-    data.append('access_key', CONFIG.formKey);
+    // The lead email is built field by field rather than dumped from the form,
+    // so it reads as a clean brief: labelled fields in a fixed order, with
+    // one-tap call and WhatsApp links for the 30-minute callback.
     var kind = $('input[name="enquiry_kind"]', form);
-    data.append('subject', kind && kind.value
-      ? kind.value + ' — ' + lead.name
-      : 'Website enquiry: ' + (lead.type || 'Loan') + ' — ' + lead.name);
-    data.append('from_name', 'GEMS Profino website');
+    var isPartner = !!(kind && kind.value);
+    var product = lead.type && !/^not sure/i.test(lead.type) ? lead.type : '';
+    var mobile = '+91 ' + lead.phone.slice(0, 5) + ' ' + lead.phone.slice(5);
+    // Read from the URL directly: page titles contain " | ", so the joined
+    // source string cannot be split back reliably.
+    var q = new URLSearchParams(window.location.search);
+    var campaign = ['utm_source', 'utm_medium', 'utm_campaign', 'gclid', 'fbclid']
+      .filter(function (k) { return q.get(k); })
+      .map(function (k) { return k + '=' + q.get(k); })
+      .join(', ');
+    var bot = $('input[name="botcheck"]', form);
 
-    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-      .then(function (res) { return res.json(); })
-      .then(function (out) {
-        if (out && out.success) succeed();
-        else fail('We could not send that just now.');
-      })
-      .catch(function () {
-        fail('We could not send that — please check your connection.');
-      });
+    var data = new FormData();
+    data.append('from_name', 'GEMS Profino Website');
+    data.append('subject', isPartner
+      ? 'New partner enquiry — ' + lead.name
+      : 'New ' + (product || 'loan') + ' enquiry — ' + lead.name + ' (' + mobile + ')');
+    if (bot) data.append('botcheck', bot.checked ? 'on' : '');
+
+    data.append('Enquiry', isPartner ? 'Partner / referral' : (product || 'Not sure yet'));
+    data.append('Name', lead.name);
+    data.append('Mobile', mobile);
+    data.append('Call now', 'tel:+91' + lead.phone);
+    data.append('WhatsApp', 'https://wa.me/91' + lead.phone);
+    data.append('Received', new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short'
+    }) + ' IST');
+    data.append('Page', window.location.origin + window.location.pathname);
+    if (campaign) data.append('Campaign', campaign);
+    data.append('Consent to contact', 'Yes (ticked on the form)');
+
+    // One copy per inbox in CONFIG.formKeys. The lead counts as delivered if
+    // any inbox accepts it, so one bad key never shows the visitor an error.
+    var sends = keys.map(function (key) {
+      var copy = new FormData();
+      copy.append('access_key', key);
+      data.forEach(function (v, k) { copy.append(k, v); });
+      return fetch('https://api.web3forms.com/submit', { method: 'POST', body: copy })
+        .then(function (res) { return res.json(); })
+        .then(function (out) { return !!(out && out.success); })
+        .catch(function () { return null; });   // null = network failure
+    });
+
+    Promise.all(sends).then(function (results) {
+      if (results.indexOf(true) !== -1) succeed();
+      else if (results.indexOf(false) !== -1) fail('We could not send that just now.');
+      else fail('We could not send that — please check your connection.');
+    });
   }
 
   /* ------------------------------------------------------------------------
@@ -371,6 +478,8 @@
     var q = new URLSearchParams(window.location.search);
     var name = (q.get('name') || '').trim();
     var type = (q.get('type') || '').trim();
+    // Home and contact forms send "Not sure yet", which must not read as a product
+    if (/^not sure/i.test(type)) type = '';
 
     if (name) slot.textContent = name.split(' ')[0];
     var typeSlot = $('[data-ty-type]');
@@ -384,7 +493,9 @@
       ));
     }
 
-    track('conversion', { product: type || 'general' });
+    // Only a real submission lands here with ?name=, so a bookmarked or
+    // directly opened thank-you page is not counted as a lead.
+    if (name) track('conversion', { product: type || 'general' });
   }
 
   /* ------------------------------------------------------------------------
@@ -462,6 +573,7 @@
      Boot
      ------------------------------------------------------------------------ */
   function boot() {
+    initTracking();
     initNav();
     initCurrent();
     initSlip();

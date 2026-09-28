@@ -54,8 +54,7 @@ index.html              Home — hero estimate, rate sheet, process, FAQ, form
 home-loan.html          ┐
 property-loan.html      │ One page per product, each targeting its own
 business-loan.html      │ search keyword ("home loan in Chennai")
-car-loan-new.html       │
-car-loan-used.html      ┘
+car-loan.html           ┘ (new + used merged 28 Sep 2026; old URLs redirect)
 about.html              Company background
 contact.html            Phone, WhatsApp, address, map, form
 privacy-policy.html     DPDP Act 2023 draft — client must approve
@@ -66,8 +65,8 @@ assets/css/styles.css   All styles. Every colour is a token in :root.
 assets/js/main.js       All behaviour. All settings are in CONFIG at the top.
 assets/img/             Logo and icons, extracted from the client's creative
 
-tools/gen-loan-pages.py    Regenerates the five loan pages from one template
-tools/gen-static-pages.py  Regenerates about/contact/privacy/terms/thank-you
+tools/gen-loan-pages.py    OUT OF DATE, do not run: would overwrite hand edits
+tools/gen-static-pages.py  OUT OF DATE, do not run: would overwrite hand edits
 
 vercel.json             Caching and security headers
 robots.txt  sitemap.xml  SEO

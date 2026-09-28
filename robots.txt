@@ -1,7 +1,56 @@
-User-agent: *
-Allow: /
+# Search engines and AI assistants are welcome to read and cite this site.
+# The conversion page should never appear in search results or AI answers.
 
-# The conversion page should never appear in search results.
+User-agent: GPTBot
+Allow: /
 Disallow: /thank-you.html
 
-Sitemap: https://gemsprofino.com/sitemap.xml
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: Claude-User
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: Googlebot
+Allow: /
+Disallow: /thank-you.html
+
+User-agent: *
+Allow: /
+Disallow: /thank-you.html
+
+Sitemap: https://www.gemsprofino.com/sitemap.xml

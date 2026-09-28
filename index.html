@@ -10,13 +10,17 @@
      flash of content. -->
 <script>document.documentElement.className += ' js';</script>
 <title>GEMS Profino — Home, Property, Business & Car Loans in Chennai</title>
-<meta name="description" content="Home, property, business and car loans across Chennai. We take your file to the lender most likely to approve it. Free callback, no charge to you.">
-<link rel="canonical" href="https://gemsprofino.com/">
+<meta name="description" content="Home, property, business and car loans in Chennai. We compare 100+ banks and NBFCs and take your file to the lender most likely to approve it.">
+<link rel="canonical" href="https://www.gemsprofino.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="GEMS Profino — Building Trust, Financing Dreams">
-<meta property="og:description" content="Home, property, business and car loans across Chennai. We take your file to the banks most likely to say yes.">
-<meta property="og:image" content="https://gemsprofino.com/assets/img/logo-on-cream.jpg">
+<meta property="og:description" content="Home, property, business and car loans in Chennai. We compare 100+ banks and NBFCs and take your file to the lender most likely to approve it.">
+<meta property="og:image" content="https://www.gemsprofino.com/assets/img/logo-on-cream.jpg">
+<meta property="og:url" content="https://www.gemsprofino.com/">
+<meta property="og:site_name" content="GEMS Profino">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -26,25 +30,72 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 
-<!-- ===================================================================
-     TRACKING — paste the real IDs here before launch.
-     Nothing below sends data until these snippets are filled in, and the
-     site keeps working normally while they are absent.
-
-     GA4:              replace G-XXXXXXXXXX
-     Google Ads:       replace AW-XXXXXXXXX
-     Meta Pixel:       replace 000000000000000
-     =================================================================== -->
-<!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-  gtag('config', 'AW-XXXXXXXXX');
+<!-- TRACKING: GA4, Google Ads and Meta Pixel load from assets/js/main.js
+     (CONFIG.tracking), so all pages get them from one place. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will enquiring here affect my credit score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Talking to us does not affect your credit score."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A bank has already declined me. Can you help?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often, yes. Every bank assesses files differently. Tell us what happened and we will find the right lender."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the loan. Car loans move fastest; home and property loans take a little longer. We keep you updated at every step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents will I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To start: Aadhaar, PAN and six months of bank statements. We send you the full list for your loan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which areas do you cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are based in Chennai and serve all of South India. Doorstep document pickup across Chennai and Tamil Nadu."
+      }
+    }
+  ]
+}
 </script>
--->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GEMS Profino",
+  "url": "https://www.gemsprofino.com/",
+  "publisher": {
+    "@id": "https://www.gemsprofino.com/#business"
+  },
+  "inLanguage": "en-IN",
+  "alternateName": [
+    "Gems Profino",
+    "GEMS Profino Chennai"
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -67,8 +118,7 @@
           <a href="home-loan.html">Home Loan</a>
           <a href="property-loan.html">Property Loan</a>
           <a href="business-loan.html">Business Loan</a>
-          <a href="car-loan-new.html">Car Loan — New</a>
-          <a href="car-loan-used.html">Car Loan — Used</a>
+          <a href="car-loan.html">Car Loan</a>
         </div>
       </div>
       <a href="#how">How it works</a>
@@ -96,9 +146,7 @@
       <h1 class="rise rise--2">Finding the lender who will <span class="accent">say yes</span>.</h1>
 
       <p class="lede rise rise--3">
-        Home, property, business and car loans. You explain what you need once.
-        We take your file to the banks most likely to approve it, and handle the
-        paperwork from there.
+        Home, property, business and car loans in Chennai. Tell us what you need once — we find the right bank and handle the paperwork.
       </p>
 
       <div class="btn-row hero-actions rise rise--4">
@@ -109,14 +157,14 @@
       <ul class="hero-assure rise rise--5">
         <li>Three documents to start</li>
         <li>Documents collected from your home</li>
-        <li>Callback within 30 minutes, 9am&ndash;9pm</li>
+        <li>Callback within 30 minutes, 9am&#8288;&ndash;&#8288;9pm</li>
       </ul>
     </div>
 
     <!-- ---- THE SLIP: live estimate, and the page's main point of intent ---- -->
     <div class="slip rise rise--3" data-slip data-product="default">
       <div class="slip-head">
-        <h2 class="slip-title">Indicative estimate</h2>
+        <h2 class="slip-title">EMI calculator</h2>
         <div class="slip-seal" aria-hidden="true">Gems<br>Profino<br>Chennai</div>
       </div>
 
@@ -181,9 +229,7 @@
       </a>
 
       <p class="slip-foot">
-        Indicative only, and not an offer of credit. The rate above is the one
-        you set on the slider — we do not quote rates. Your actual rate is
-        decided by the lender, on your income and credit history.
+        Indicative only. Not an offer of credit — your actual rate is set by the lender.
       </p>
     </div>
   </div>
@@ -194,7 +240,6 @@
   <div class="container rail-inner">
     <p class="rail-label">Applications placed through</p>
     <ul class="rail-list">
-      <li>Urban Money</li>
       <li>100+ banks &amp; NBFCs</li>
       <li>RBI-regulated lenders</li>
     </ul>
@@ -211,12 +256,10 @@
 <section class="block" id="loans">
   <div class="container">
     <div class="block-head">
-      <p class="eyebrow">What we arrange</p>
-      <h2>Five loans, one file.</h2>
+      <p class="eyebrow">Loans we arrange in Chennai</p>
+      <h2>Four loans, one file.</h2>
       <p class="lede">
-        Balance transfer is available on every one of them. What you qualify
-        for is the lender's decision — our job is to put your file in front of
-        the lender most likely to approve it.
+        Balance transfer is available on all of them.
       </p>
     </div>
 
@@ -258,31 +301,19 @@
         <span class="sheet-go" aria-hidden="true">&rarr;</span>
       </a>
 
-      <a class="sheet-row" href="car-loan-new.html">
+      <a class="sheet-row" href="car-loan.html">
         <span class="sheet-name">
-          <strong>Car Loan &mdash; New</strong>
-          <span>Dealer quotation to disbursal</span>
+          <strong>Car Loan</strong>
+          <span>New or used, dealer or private sale</span>
         </span>
-        <span class="sheet-val">Vehicle quotation</span>
-        <span class="sheet-val">Available</span>
-        <span class="sheet-go" aria-hidden="true">&rarr;</span>
-      </a>
-
-      <a class="sheet-row" href="car-loan-used.html">
-        <span class="sheet-name">
-          <strong>Car Loan &mdash; Used</strong>
-          <span>Pre-owned cars, dealer or private sale</span>
-        </span>
-        <span class="sheet-val">RC and valuation</span>
+        <span class="sheet-val">Quotation or RC</span>
         <span class="sheet-val">Available</span>
         <span class="sheet-go" aria-hidden="true">&rarr;</span>
       </a>
     </div>
 
     <p class="sheet-note">
-      Every application starts with the same three documents &mdash; Aadhaar,
-      PAN and six months of bank statements. Anything else depends on the
-      product and the lender, and we will tell you before you need it.
+      Every application starts with three documents: Aadhaar, PAN and six months of bank statements.
     </p>
   </div>
 </section>
@@ -291,12 +322,10 @@
 <section class="block block--paper">
   <div class="container split">
     <div>
-      <p class="eyebrow">Why use an agent at all</p>
-      <h2>A rejection costs you more than a week.</h2>
+      <p class="eyebrow">Why use a loan agent</p>
+      <h2>The right bank, the first time.</h2>
       <p class="lede">
-        Every bank reads the same file differently. Apply to the wrong one and
-        you lose weeks — and the enquiry sits on your credit report either way.
-        Our job is to know, before you apply, who is likely to approve you.
+        Every bank reads the same file differently. We find out who is likely to approve you before you apply.
       </p>
     </div>
 
@@ -304,11 +333,9 @@
       <li>
         <span class="pillar-k">MATCH</span>
         <div>
-          <h3>We pick the lender, not you</h3>
+          <h3>We pick the right lender for you</h3>
           <p>
-            We place files every week and see who is currently approving what.
-            Self-employed with irregular income, a property with incomplete
-            paperwork, a past rejection — each of those points to a different bank.
+            Salaried or self-employed, we know which bank suits your profile.
           </p>
         </div>
       </li>
@@ -317,8 +344,7 @@
         <div>
           <h3>We prepare the paperwork</h3>
           <p>
-            Most rejections are filing errors, not credit problems. We check the
-            documents before submission, so the file reaches the bank complete.
+            We collect and prepare your documents, so your file reaches the bank complete.
           </p>
         </div>
       </li>
@@ -327,9 +353,7 @@
         <div>
           <h3>We chase it to sanction</h3>
           <p>
-            You get one point of contact instead of a branch queue. We follow the
-            file through valuation, legal check and sanction, and tell you where
-            it stands.
+            One point of contact, no branch queues. We follow your file until the loan is approved.
           </p>
         </div>
       </li>
@@ -356,7 +380,7 @@
       </li>
       <li>
         <h3>We shortlist lenders</h3>
-        <p>We come back with the banks likely to approve you, the rate each would offer, and the catch in each.</p>
+        <p>We come back with the banks likely to approve you and what each offers.</p>
       </li>
       <li>
         <h3>Documents and filing</h3>
@@ -386,50 +410,35 @@
       <details>
         <summary>Will enquiring here affect my credit score?</summary>
         <div>
-          No. Talking to us changes nothing on your credit report. A score is
-          only affected when a lender runs a formal credit check, which happens
-          after you decide to apply — and we will tell you before that step.
+          No. Talking to us does not affect your credit score.
         </div>
       </details>
 
       <details>
-        <summary>A bank has already rejected me. Is there any point?</summary>
+        <summary>A bank has already declined me. Can you help?</summary>
         <div>
-          Often, yes. Lenders differ in how they treat irregular income, existing
-          debt, property documentation and past defaults. A rejection at one bank
-          says little about the next. Tell us why you were rejected and we will be
-          straight with you about whether it is worth reapplying.
+          Often, yes. Every bank assesses files differently. Tell us what happened and we will find the right lender.
         </div>
       </details>
 
       <details>
         <summary>How long does it take?</summary>
         <div>
-          It depends on the product. A car loan moves fastest. Home and
-          property loans take longest, because the lender has to value the
-          property and run a legal check on it. We push for a quick decision
-          and tell you where your file actually stands &mdash; we will not
-          promise you a date the lender has not given us.
+          It depends on the loan. Car loans move fastest; home and property loans take a little longer. We keep you updated at every step.
         </div>
       </details>
 
       <details>
         <summary>What documents will I need?</summary>
         <div>
-          It varies by loan and by lender, but almost always: identity and address
-          proof, PAN, six months of bank statements, income proof (salary slips or
-          ITR), and for property loans the title documents. We send you an exact
-          list once we know which lender we are approaching.
+          To start: Aadhaar, PAN and six months of bank statements. We send you the full list for your loan.
         </div>
       </details>
 
       <details>
         <summary>Which areas do you cover?</summary>
         <div>
-          We are based in Chennai and take applications across South India
-          &mdash; Tamil Nadu, Puducherry, Kerala, Karnataka, Andhra Pradesh and
-          Telangana. Doorstep document collection is offered in Chennai and
-          Tamil Nadu; elsewhere we handle the file digitally.
+          We are based in Chennai and serve all of South India. Doorstep document pickup across Chennai and Tamil Nadu.
         </div>
       </details>
     </div>
@@ -443,8 +452,7 @@
       <p class="eyebrow">Get a callback</p>
       <h2>Tell us what you need.</h2>
       <p class="lede">
-        Two fields are enough to start. We will call you back and tell you
-        honestly whether we can help — including when the answer is no.
+        Two fields are enough to start. We will call you back.
       </p>
 
       <ul class="check" style="margin-top:32px;max-width:420px">
@@ -465,40 +473,12 @@
           <label for="f-phone">Mobile number <span class="req">*</span></label>
           <input id="f-phone" name="phone" type="tel" inputmode="numeric"
                  autocomplete="tel" placeholder="10-digit mobile" required>
-          <p class="field-hint">We call from a Chennai number. No automated calls.</p>
           <p class="field-error"></p>
         </div>
 
-        <div class="field">
-          <label for="f-type">Which loan? <span class="req">*</span></label>
-          <select id="f-type" name="loan_type" required>
-            <option value="">Select a loan</option>
-            <option value="Home Loan">Home Loan</option>
-            <option value="Property Loan">Property Loan</option>
-            <option value="Business Loan">Business Loan</option>
-            <option value="Car Loan (New)">Car Loan — New</option>
-            <option value="Car Loan (Used)">Car Loan — Used</option>
-            <option value="Not sure yet">Not sure yet</option>
-          </select>
-          <p class="field-error"></p>
-        </div>
+        <input type="hidden" id="f-type" name="loan_type" value="Not sure yet">
 
-        <div class="field-row">
-          <div class="field">
-            <label for="f-amount">Amount needed</label>
-            <input id="f-amount" name="amount" type="text" placeholder="e.g. 50 Lakh">
-          </div>
-          <div class="field">
-            <label for="f-city">City</label>
-            <input id="f-city" name="city" type="text" placeholder="Chennai">
-          </div>
-        </div>
 
-        <div class="field">
-          <label for="f-note">Anything we should know?</label>
-          <textarea id="f-note" name="note" rows="3"
-            placeholder="Self-employed, a past rejection, a property already shortlisted — anything that helps."></textarea>
-        </div>
 
         <!-- Records which page and campaign produced the lead. -->
         <input type="hidden" id="f-source" name="source" value="">
@@ -512,7 +492,7 @@
           <label class="consent" for="f-consent">
             <input id="f-consent" type="checkbox" name="consent" value="yes" required>
             <span>
-              I authorise GEMS Profino, Urban Money and their lending partners
+              I authorise GEMS Profino and its lending partners
               to contact me by phone, SMS or WhatsApp about this enquiry,
               including where my number is registered under DND or NDNC. See our
               <a href="privacy-policy.html">privacy policy</a>.
@@ -526,7 +506,7 @@
         <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
 
         <div class="or-wa">
-          <p>Would rather just message?</p>
+          <p>Prefer to message?</p>
           <a class="btn btn--wa btn--block" data-wa href="#" rel="noopener">Chat on WhatsApp</a>
         </div>
       </form>
@@ -545,8 +525,7 @@
                style="width:160px;height:auto">
         </a>
         <p>
-          A loan facilitator in Chennai, placing home, property, business and car
-          loan files with banks and NBFCs across Tamil Nadu.
+          A loan facilitator in Chennai, placing home, property, business and car loan files with banks and NBFCs across South India.
         </p>
       </div>
 
@@ -556,8 +535,7 @@
           <li><a href="home-loan.html">Home Loan</a></li>
           <li><a href="property-loan.html">Property Loan</a></li>
           <li><a href="business-loan.html">Business Loan</a></li>
-          <li><a href="car-loan-new.html">Car Loan — New</a></li>
-          <li><a href="car-loan-used.html">Car Loan — Used</a></li>
+          <li><a href="car-loan.html">Car Loan</a></li>
         </ul>
       </div>
 
@@ -574,7 +552,7 @@
       <div>
         <h4>Talk to us</h4>
         <ul class="foot-list">
-          <li><a href="tel:+919841525074" data-call>+91 98415 25074</a></li>
+          <li><a href="tel:+919841525074" data-call>Call us</a></li>
           <li><a data-wa href="#" rel="noopener">WhatsApp</a></li>
           <li><a href="https://instagram.com/gemsprofino" rel="noopener">Instagram</a></li>
           <li><a href="https://facebook.com/gemsprofino" rel="noopener">Facebook</a></li>
@@ -584,8 +562,7 @@
     </div>
 
     <p class="disclaimer">
-      <strong>Disclaimer.</strong> GEMS Profino is a loan facilitator and an
-      authorised channel partner of Urban Money, a lending service provider. We
+      <strong>Disclaimer.</strong> GEMS Profino is a loan facilitator. We
       are not a bank, an NBFC or a lender, and we do not lend money. Loan
       approval, interest rate and final terms are decided solely by the
       respective bank or NBFC. This site does not quote interest rates, and
@@ -594,7 +571,14 @@
 
     <div class="foot-bottom">
       <span>© 2026 GEMS Profino. Building Trust, Financing Dreams.</span>
-      <span>Website by <a href="https://www.foreteksolution.com" rel="noopener">Foretek Solution</a></span>
+      <div class="foot-social">
+        <a class="social-btn" href="https://www.instagram.com/gemsprofino/" target="_blank" rel="noopener" aria-label="GEMS Profino on Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="social-btn" href="https://www.facebook.com/gemsprofino" target="_blank" rel="noopener" aria-label="GEMS Profino on Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>
@@ -612,18 +596,36 @@
   "@context": "https://schema.org",
   "@type": "FinancialService",
   "name": "GEMS Profino",
-  "description": "Loan facilitator arranging home, property, business and car loans in Chennai and Tamil Nadu.",
+  "description": "Loan facilitator arranging home, property, business and car loans in Chennai and across South India.",
   "slogan": "Building Trust, Financing Dreams",
-  "url": "https://gemsprofino.com/",
-  "logo": "https://gemsprofino.com/assets/img/logo.png",
+  "url": "https://www.gemsprofino.com/",
+  "logo": "https://www.gemsprofino.com/assets/img/logo.png",
   "telephone": "+91-98415-25074",
   "areaServed": [
-    { "@type": "State", "name": "Tamil Nadu" },
-    { "@type": "State", "name": "Kerala" },
-    { "@type": "State", "name": "Karnataka" },
-    { "@type": "State", "name": "Andhra Pradesh" },
-    { "@type": "State", "name": "Telangana" },
-    { "@type": "State", "name": "Puducherry" }
+    {
+      "@type": "State",
+      "name": "Tamil Nadu"
+    },
+    {
+      "@type": "State",
+      "name": "Kerala"
+    },
+    {
+      "@type": "State",
+      "name": "Karnataka"
+    },
+    {
+      "@type": "State",
+      "name": "Andhra Pradesh"
+    },
+    {
+      "@type": "State",
+      "name": "Telangana"
+    },
+    {
+      "@type": "State",
+      "name": "Puducherry"
+    }
   ],
   "address": {
     "@type": "PostalAddress",
@@ -631,10 +633,38 @@
     "addressRegion": "Tamil Nadu",
     "addressCountry": "IN"
   },
-  "openingHours": "Mo-Sa 09:00-21:00",
   "sameAs": [
-    "https://instagram.com/gemsprofino",
-    "https://facebook.com/gemsprofino"
+    "https://www.instagram.com/gemsprofino/",
+    "https://www.facebook.com/gemsprofino"
+  ],
+  "@id": "https://www.gemsprofino.com/#business",
+  "image": "https://www.gemsprofino.com/assets/img/logo-on-cream.jpg",
+  "email": "gemsprofino@gmail.com",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "21:00"
+    }
+  ],
+  "knowsAbout": [
+    "Home loan",
+    "Loan against property",
+    "Business loan",
+    "Car loan",
+    "Balance transfer"
+  ],
+  "alternateName": [
+    "Gems Profino",
+    "GEMS Profino Chennai"
   ]
 }
 </script>

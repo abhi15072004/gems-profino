@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 """
+DO NOT RUN. Out of date since 28 Sep 2026: the live HTML has been edited
+directly since (copy trimmed, car pages merged into car-loan.html, forms
+cut to name + number, Urban Money removed). Running this would overwrite
+all of that. Edit the HTML files instead.
+"""
+
+"""
 Generates about, contact, privacy-policy, terms and thank-you.
 
 Reuses the header and footer from gen-loan-pages.py so the chrome on every
