@@ -254,3 +254,9 @@ If you ever add a build step that fingerprints filenames
 
 Images are cached for a week. To change one immediately, rename the file and
 update the reference rather than relying on cache expiry.
+
+## Cache busting
+
+Every page loads `styles.css?v=…` and `main.js?v=…`. After changing either file,
+bump the `v=` value on all pages (one find-and-replace), or returning visitors
+may keep the old file and see a broken layout.
