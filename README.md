@@ -1,7 +1,7 @@
 # GEMS Profino — lead-generation website
 
 Built by **Foretek Solution and Services (OPC) Pvt Ltd** for GEMS Profino, a
-loan facilitator in Chennai and an authorised channel partner of Urban Money.
+loan expert and an authorised channel partner of Urban Money.
 Provided complimentary; the domain is purchased by the client.
 
 **Live:** <https://www.gemsprofino.com/>
@@ -50,10 +50,11 @@ behave better over HTTP.
 ## Files
 
 ```
-index.html              Home — hero estimate, rate sheet, process, FAQ, form
+index.html              Home — hero, loan sheet, FAQ, form (no calculator, no process since 28 Sep 2026)
+emi-calculator.html     The only EMI calculator on the site — one slip, a tab per loan type
 home-loan.html          ┐
 property-loan.html      │ One page per product, each targeting its own
-business-loan.html      │ search keyword ("home loan in Chennai")
+business-loan.html      │ search keyword ("home loan")
 car-loan.html           ┘ (new + used merged 28 Sep 2026; old URLs redirect)
 about.html              Company background
 contact.html            Phone, WhatsApp, address, map, form
@@ -130,8 +131,8 @@ validates, shows the thank-you page, and sends nothing.
 
 ### 2. Confirm the WhatsApp number
 `assets/js/main.js` → `CONFIG.whatsapp` (currently `919841525074`, taken from
-the creatives). It also appears in `tel:` links in each page's header, footer
-and mobile bar — search for `9841525074`.
+the creatives). All `tel:` call links were removed on 28 Sep 2026 on the
+client's request — visitors reach the business by WhatsApp or the form only.
 
 ### 3. Rates — not applicable
 

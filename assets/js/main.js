@@ -221,6 +221,48 @@
     yrsEl.addEventListener('input', render);
     if (rateEl) rateEl.addEventListener('input', render);
 
+    // emi-calculator.html: one slip, a tab per loan. Each preset keeps the
+    // slider ranges that product's own page used before the calculators were
+    // moved here. The rate slider is left where the visitor put it.
+    var CALC_PRESETS = {
+      home:     { product: 'Home Loan',     amt: [500000, 50000000, 100000, 5000000],   amtScale: ['₹5 L', '₹5 Cr'],  yrs: [1, 30, 20] },
+      property: { product: 'Property Loan', amt: [1000000, 100000000, 500000, 10000000], amtScale: ['₹10 L', '₹10 Cr'], yrs: [1, 15, 10] },
+      business: { product: 'Business Loan', amt: [100000, 20000000, 100000, 2500000],  amtScale: ['₹1 L', '₹2 Cr'],   yrs: [1, 5, 3] },
+      car:      { product: 'Car Loan',      amt: [100000, 10000000, 50000, 1000000],    amtScale: ['₹1 L', '₹1 Cr'],   yrs: [1, 7, 5] }
+    };
+    var tabs = $('[data-calc-tabs]');
+    if (tabs) {
+      var tabBtns = tabs.querySelectorAll('[data-calc-preset]');
+      var title = $('[data-calc-title]', slip);
+      var amtScale = $('#slip-amount-scale', slip).children;
+      var yrsScale = $('#slip-years-scale', slip).children;
+
+      var applyPreset = function (key) {
+        var p = CALC_PRESETS[key];
+        if (!p) return;
+        product = p.product;
+        slip.setAttribute('data-product', product);
+        amtEl.min = p.amt[0]; amtEl.max = p.amt[1]; amtEl.step = p.amt[2]; amtEl.value = p.amt[3];
+        yrsEl.min = p.yrs[0]; yrsEl.max = p.yrs[1]; yrsEl.value = p.yrs[2];
+        amtScale[0].textContent = p.amtScale[0];
+        amtScale[1].textContent = p.amtScale[1];
+        yrsScale[1].textContent = p.yrs[1] + ' yrs';
+        if (title) title.textContent = product + ' · estimate';
+        Array.prototype.forEach.call(tabBtns, function (b) {
+          b.setAttribute('aria-selected', b.getAttribute('data-calc-preset') === key ? 'true' : 'false');
+        });
+        render();
+      };
+
+      Array.prototype.forEach.call(tabBtns, function (b) {
+        b.addEventListener('click', function () { applyPreset(b.getAttribute('data-calc-preset')); });
+      });
+
+      // Deep link: emi-calculator.html#car opens on the car loan tab.
+      var fromHash = location.hash.replace('#', '');
+      if (CALC_PRESETS[fromHash]) applyPreset(fromHash);
+    }
+
     // Carry the estimate into the enquiry form, so a lead arrives with intent
     var jump = $('[data-slip-apply]', slip);
     if (jump) {

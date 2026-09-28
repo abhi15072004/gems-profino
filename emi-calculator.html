@@ -9,15 +9,15 @@
      which is the correct fallback. Must stay inline and early to avoid a
      flash of content. -->
 <script>document.documentElement.className += ' js';</script>
-<title>Contact GEMS Profino — Loan Help</title>
-<meta name="description" content="Call, WhatsApp or request a callback for home, property, business and car loans. Mon–Sat, 9am–9pm.">
-<link rel="canonical" href="https://www.gemsprofino.com/contact.html">
+<title>EMI Calculator — Home, Property, Business &amp; Car Loan | GEMS Profino</title>
+<meta name="description" content="Estimate your monthly EMI for a home, property, business or car loan. Set the amount, tenure and rate yourself — indicative only, not an offer of credit.">
+<link rel="canonical" href="https://www.gemsprofino.com/emi-calculator.html">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Contact GEMS Profino — Loan Help">
-<meta property="og:description" content="Call, WhatsApp or request a callback for home, property, business and car loans. Mon–Sat, 9am–9pm.">
+<meta property="og:title" content="EMI Calculator — Home, Property, Business &amp; Car Loan | GEMS Profino">
+<meta property="og:description" content="Estimate your monthly EMI for a home, property, business or car loan. Set the amount, tenure and rate yourself — indicative only, not an offer of credit.">
 <meta property="og:image" content="https://www.gemsprofino.com/assets/img/logo-on-cream.jpg">
-<meta property="og:url" content="https://www.gemsprofino.com/contact.html">
+<meta property="og:url" content="https://www.gemsprofino.com/emi-calculator.html">
 <meta property="og:site_name" content="GEMS Profino">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
@@ -29,29 +29,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css?v=20260928c">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.gemsprofino.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Contact",
-      "item": "https://www.gemsprofino.com/contact.html"
-    }
-  ]
-}
-</script>
 </head>
 
-<body data-product="">
+<body>
 
 
 <header class="site-head">
@@ -74,7 +54,7 @@
           <a href="car-loan.html">Car Loan</a>
         </div>
       </div>
-      <a href="emi-calculator.html">EMI Calculator</a>
+      <a href="emi-calculator.html" aria-current="page">EMI Calculator</a>
       <a href="about.html">About</a>
       <a href="partner.html">Partner</a>
       <a href="contact.html">Contact</a>
@@ -90,55 +70,105 @@
 
 <section class="page-head">
   <div class="container">
-    <p class="crumbs"><a href="index.html">Home</a> / Contact</p>
-    <h1>Talk to us.</h1>
-    <p class="lede">
-      Call, message, or leave your number and we will call you back
-      within 30 minutes during business hours.
-    </p>
-
-    <dl class="facts facts--3">
-      <div>
-        <dt>WhatsApp</dt>
-        <dd style="font-size:1rem"><a data-wa href="#" rel="noopener">Start a chat</a></dd>
-      </div>
-      <div>
-        <dt>Email</dt>
-        <dd style="font-size:1rem">
-          <a href="mailto:gemsprofino@gmail.com">gemsprofino@gmail.com</a>
-        </dd>
-      </div>
-      <div>
-        <dt>Hours</dt>
-        <dd style="font-size:1rem"><span>Mon–Sat</span><br><span>9am–9pm</span></dd>
-      </div>
-    </dl>
+    <p class="crumbs"><a href="index.html">Home</a> / EMI Calculator</p>
+    <h1>EMI Calculator</h1>
+    <p class="lede">Pick your loan, then move the sliders. You set the rate — we do not quote one. Your actual rate is set by the lender.</p>
   </div>
 </section>
 
 <section class="block">
-  <div class="container two-col">
-    <div>
-      <p class="eyebrow">Where we work</p>
-      <h2>We come to you.</h2>
-      <p>
-        Documents are collected from your home or office across Tamil Nadu, at a time that suits you.
-      </p>
-      <p style="margin-top:22px">
-        In Puducherry, Kerala, Karnataka, Andhra Pradesh and Telangana, we handle everything online, by WhatsApp or email.
-      </p>
-      <p style="margin-top:22px;font-size:0.9rem;color:var(--ink-soft)">
-        Phone and WhatsApp are fastest. Or leave your number and we will call you back.
-      </p>
+  <div class="container calc-wrap">
+    <div class="calc-tabs" role="tablist" aria-label="Loan type" data-calc-tabs>
+      <button type="button" role="tab" aria-selected="true" data-calc-preset="home">Home Loan</button>
+      <button type="button" role="tab" aria-selected="false" data-calc-preset="property">Property Loan</button>
+      <button type="button" role="tab" aria-selected="false" data-calc-preset="business">Business Loan</button>
+      <button type="button" role="tab" aria-selected="false" data-calc-preset="car">Car Loan</button>
     </div>
 
+    <div class="slip" data-slip data-product="Home Loan">
+      <div class="slip-head">
+        <h2 class="slip-title" data-calc-title>Home Loan · estimate</h2>
+        <div class="slip-seal" aria-hidden="true">Gems<br>Profino</div>
+      </div>
+
+      <div class="slip-field">
+        <div class="slip-field-top">
+          <label class="slip-label" for="slip-amount">Loan amount</label>
+          <output class="slip-value" for="slip-amount" data-out-amount></output>
+        </div>
+        <input class="slip-range" id="slip-amount" type="range"
+               min="500000" max="50000000" step="100000" value="5000000"
+               data-slip-amount aria-describedby="slip-amount-scale">
+        <div class="slip-scale" id="slip-amount-scale"><span>₹5 L</span><span>₹5 Cr</span></div>
+      </div>
+
+      <div class="slip-field">
+        <div class="slip-field-top">
+          <label class="slip-label" for="slip-years">Tenure</label>
+          <output class="slip-value" for="slip-years" data-out-years></output>
+        </div>
+        <input class="slip-range" id="slip-years" type="range"
+               min="1" max="30" step="1" value="20"
+               data-slip-years aria-describedby="slip-years-scale">
+        <div class="slip-scale" id="slip-years-scale"><span>1 yr</span><span>30 yrs</span></div>
+      </div>
+
+      <div class="slip-field">
+        <div class="slip-field-top">
+          <label class="slip-label" for="slip-rate">Interest rate</label>
+          <output class="slip-value" for="slip-rate" data-out-rate-label></output>
+        </div>
+        <input class="slip-range" id="slip-rate" type="range"
+               min="6" max="24" step="0.05" value="9.5"
+               data-slip-rate aria-describedby="slip-rate-scale">
+        <div class="slip-scale" id="slip-rate-scale"><span>6%</span><span>24%</span></div>
+      </div>
+
+      <hr class="slip-rule">
+
+      <div class="slip-out">
+        <div>
+          <p class="slip-out-label">Monthly EMI</p>
+          <p class="slip-emi" data-out-emi></p>
+        </div>
+        <p class="slip-emi-note">
+          at <span data-out-rate></span> p.a.
+        </p>
+      </div>
+
+      <dl class="slip-meta">
+        <div><dt>Total interest</dt><dd data-out-interest></dd></div>
+        <div><dt>Total payable</dt><dd data-out-total></dd></div>
+      </dl>
+
+      <a class="btn btn--gold btn--block" href="#enquiry" data-slip-apply>
+        Check what I qualify for
+      </a>
+
+      <p class="slip-foot">
+        Indicative only. Not an offer of credit — your actual rate is set by the lender.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ENQUIRY ======================= -->
+<section class="block block--paper" id="enquiry">
+  <div class="container form-wrap">
     <div>
       <p class="eyebrow">Get a callback</p>
-      <h2>Leave your number.</h2>
-      <p style="margin-bottom:28px">
-        Two fields are enough. We will call you back.
+      <h2>Tell us what you need.</h2>
+      <p class="lede">
+        Two fields are enough to start. We will call you back.
       </p>
-      <div class="form-card">
+
+      <ul class="check" style="margin-top:32px;max-width:420px">
+        <li>No documents needed for the first call</li>
+        <li>No effect on your credit score</li>
+      </ul>
+    </div>
+
+    <div class="form-card">
       <form id="enquiry-form" novalidate>
         <div class="field">
           <label for="f-name">Your name <span class="req">*</span></label>
@@ -157,7 +187,9 @@
 
 
 
+        <!-- Records which page and campaign produced the lead. -->
         <input type="hidden" id="f-source" name="source" value="">
+        <!-- Web3Forms spam trap -->
         <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" aria-hidden="true">
 
         <!-- Wrapped in .field so the shared error handling can find it:
@@ -185,10 +217,10 @@
           <a class="btn btn--wa btn--block" data-wa href="#" rel="noopener">Chat on WhatsApp</a>
         </div>
       </form>
-      </div>
     </div>
   </div>
 </section>
+
 </main>
 
 <footer class="site-foot">

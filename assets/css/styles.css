@@ -659,6 +659,69 @@ p:last-child { margin-bottom: 0; }
   line-height: 1.5;
 }
 
+/* Home hero without the slip (calculators moved to emi-calculator.html,
+   28 Sep 2026). */
+.hero-grid--solo { grid-template-columns: minmax(0, 760px); }
+
+/* Home hero, right column — short list of the four loans */
+.hero-loans {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 30px 30px 24px;
+}
+.hero-loans .eyebrow { margin-bottom: 8px; }
+.hero-loan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+}
+.hero-loan strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.hero-loan strong + span { display: block; font-size: 0.85rem; color: var(--ink-soft); }
+.hero-loan-go { color: var(--forest); flex: none; }
+.hero-loan:hover strong { color: var(--forest); }
+.hero-loans-note { font-size: 0.85rem; color: var(--ink-soft); margin-top: 16px; }
+
+/* emi-calculator.html — loan-type tabs above a single slip */
+.calc-wrap > * { max-width: 560px; }
+
+.calc-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.calc-tabs button {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 9px 16px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+}
+.calc-tabs button:hover { border-color: var(--forest); }
+.calc-tabs button[aria-selected="true"] {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--white);
+}
+.calc-tabs button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
 /* --------------------------------------------------------------------------
    10. LENDER RAIL
    -------------------------------------------------------------------------- */
@@ -1401,7 +1464,7 @@ p.tbc,
     background: transparent;
   }
 
-  .head-cta .btn { display: none; }
+  .head-cta { display: none; }
 
   .mobile-bar { display: flex; }
 
@@ -1447,3 +1510,7 @@ p.tbc,
 .facts dd span { white-space: nowrap; }
 @media (max-width: 1180px) { .facts { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px)  { .facts { grid-template-columns: 1fr; } }
+/* Three-item strip (contact page, after the phone box was removed) */
+.facts--3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1180px) { .facts--3 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .facts--3 { grid-template-columns: 1fr; } }

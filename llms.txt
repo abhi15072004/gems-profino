@@ -1,12 +1,12 @@
 # GEMS Profino
 
-> GEMS Profino is a loan facilitator based in Chennai, Tamil Nadu, India. It helps people and businesses get home loans, loans against property, business loans and car loans by matching each application with a suitable lender from a network of 100+ banks and NBFCs, preparing the paperwork and following the file until the loan is paid out.
+> GEMS Profino is a loan expert based in Tamil Nadu, India. It helps people and businesses get home loans, loans against property, business loans and car loans by matching each application with a suitable lender from a network of 100+ banks and NBFCs, preparing the paperwork and following the file until the loan is paid out.
 
 GEMS Profino is not a bank, NBFC or lender and does not lend money. Loan approval, interest rate and final terms are decided by the lending bank or NBFC. GEMS Profino does not quote interest rates.
 
-- Based in: Chennai, Tamil Nadu, India
+- Based in: Tamil Nadu, India
 - Serves: Tamil Nadu, Puducherry, Kerala, Karnataka, Andhra Pradesh and Telangana
-- Doorstep document collection: Chennai and Tamil Nadu
+- Doorstep document collection: Tamil Nadu
 - Hours: Monday to Saturday, 9am to 9pm
 - Callback: within 30 minutes of an enquiry, during business hours
 - To start an application: Aadhaar, PAN card and 6 months of bank statements
@@ -17,10 +17,14 @@ GEMS Profino is not a bank, NBFC or lender and does not lend money. Loan approva
 
 ## Loans
 
-- [Home Loan in Chennai](https://www.gemsprofino.com/home-loan.html): buying a flat, plot or house, construction, renovation, top-up and home loan balance transfer, for salaried and self-employed applicants
-- [Loan Against Property in Chennai](https://www.gemsprofino.com/property-loan.html): borrowing against a house, flat, shop or plot the applicant already owns
-- [Business Loan in Chennai](https://www.gemsprofino.com/business-loan.html): working capital, expansion and machinery, with or without property as security
-- [Car Loan in Chennai](https://www.gemsprofino.com/car-loan.html): new and used cars, from a showroom, dealer or private seller, plus refinance on a car already owned
+- [Home Loan](https://www.gemsprofino.com/home-loan.html): buying a flat, plot or house, construction, renovation, top-up and home loan balance transfer, for salaried and self-employed applicants
+- [Loan Against Property](https://www.gemsprofino.com/property-loan.html): borrowing against a house, flat, shop or plot the applicant already owns
+- [Business Loan](https://www.gemsprofino.com/business-loan.html): working capital, expansion and machinery, with or without property as security
+- [Car Loan](https://www.gemsprofino.com/car-loan.html): new and used cars, from a showroom, dealer or private seller, plus refinance on a car already owned
+
+## Tools
+
+- [EMI Calculator](https://www.gemsprofino.com/emi-calculator.html): estimate the monthly EMI for a home, property, business or car loan; the visitor sets the interest rate, and the result is indicative only
 
 ## Company
 
