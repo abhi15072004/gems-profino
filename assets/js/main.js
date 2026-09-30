@@ -19,7 +19,7 @@
     // With no keys the form sends nothing: demo success on localhost, a
     // visible error (with a WhatsApp link) everywhere else.
     formKeys: [
-      ''    // client: gemsprofino@gmail.com — paste the key from Satyam
+      '6fde37d7-4aa6-45e6-bb06-99311ce6b40b'    // client: gemsprofino@gmail.com (added 30 Sep 2026)
     ],
 
     // Tracking IDs. Paste each one in as it arrives; blanks are skipped.
