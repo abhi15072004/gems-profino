@@ -669,7 +669,9 @@ p:last-child { margin-bottom: 0; }
   border: 1px solid var(--rule);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  padding: 30px 30px 24px;
+  /* Top is 14px because the first row adds its own 16px: 30px on every side.
+     Was 30px 30px 24px while the "Loans we arrange" eyebrow sat on top. */
+  padding: 14px 30px 26px;
 }
 .hero-loans .eyebrow { margin-bottom: 8px; }
 .hero-loan {
@@ -1104,6 +1106,41 @@ p:last-child { margin-bottom: 0; }
 .field--consent .consent { margin: 0; }
 .field--consent.is-invalid .consent input { outline: 2px solid var(--error); outline-offset: 2px; }
 .field--consent .field-error { margin-top: 8px; }
+
+/* Radio choice (partner page: loan or partner) */
+.field--choice { border: 0; padding: 0; margin: 0 0 18px; min-width: 0; }
+.field--choice legend {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 9px;
+  padding: 0;
+}
+.field .choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 8px;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: var(--white);
+  border: 1.5px solid var(--rule-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+.field .choice input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  padding: 0;
+  flex: none;
+  accent-color: var(--forest);
+  box-shadow: none;
+}
+.field .choice:has(input:checked) { border-color: var(--forest); box-shadow: 0 0 0 3px var(--forest-tint); }
+.field .choice:has(input:focus-visible) { border-color: var(--forest); }
+.field--choice.is-invalid .choice { border-color: var(--error); }
 
 .form-status {
   margin-top: 16px;

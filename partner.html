@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=20260928c">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260930a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -175,7 +175,7 @@
       <p>
         No licence, office or lending background needed — just people who trust you.
       </p>
-      <p style="margin-top:22px;font-size:0.9rem;color:var(--ink-soft)">
+      <p>
         Your client stays your client. We are arranging their loan, not taking
         over your relationship.
       </p>
@@ -297,6 +297,19 @@
 
     <div class="form-card">
       <form id="enquiry-form" novalidate>
+        <fieldset class="field field--choice">
+          <legend>What would you like to do?</legend>
+          <label class="choice">
+            <input type="radio" name="intent" value="loan" required>
+            <span>I am looking for a loan</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="intent" value="partner" required>
+            <span>I want to join as a partner</span>
+          </label>
+          <p class="field-error"></p>
+        </fieldset>
+
         <div class="field">
           <label for="f-name">Your name</label>
           <input id="f-name" name="name" type="text" autocomplete="name" required>
@@ -347,7 +360,7 @@
                style="width:160px;height:auto">
         </a>
         <p>
-          A loan expert placing home, property, business and car loan files with banks and NBFCs across South India.
+          A loan expert sourcing home, property, business and car loan files from banks and NBFCs across South India.
         </p>
       </div>
 
@@ -387,7 +400,7 @@
       are not a bank, an NBFC or a lender, and we do not lend money. Loan
       approval, interest rate and final terms are decided solely by the
       respective bank or NBFC. This site does not quote interest rates, and
-      nothing on it constitutes an offer of credit.
+      nothing on it constitutes an offer of credit. All loans are subject to the terms and conditions of the respective bank or NBFC.
     </p>
 
     <div class="foot-bottom">
@@ -408,6 +421,6 @@
   <a class="btn btn--wa" data-wa href="#" rel="noopener">WhatsApp</a>
 </div>
 
-<script src="assets/js/main.js?v=20260928c"></script>
+<script src="assets/js/main.js?v=20260930a"></script>
 </body>
 </html>

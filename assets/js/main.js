@@ -389,6 +389,12 @@
         setError(type, 'Choose the loan you need.'); ok = false;
       }
 
+      // Partner page only: the visitor says whether they want a loan or to partner
+      var intents = $$('input[name="intent"]', form);
+      if (intents.length && !intents.some(function (r) { return r.checked; })) {
+        setError(intents[0], 'Please choose one option.'); ok = false;
+      }
+
       if (consent && !consent.checked) {
         setError(consent, 'Please tick the consent box so we can call you back.');
         ok = false;
@@ -407,6 +413,26 @@
         type: type ? type.value : ''
       });
     });
+  }
+
+  // Plain name of the page the form was sent from, for the lead email.
+  // Home, contact and EMI calculator all send "Not sure yet" as the loan,
+  // so the URL alone is the only way to tell those leads apart.
+  var PAGE_NAMES = {
+    '': 'Home page',
+    'index': 'Home page',
+    'home-loan': 'Home Loan page',
+    'property-loan': 'Property Loan page',
+    'business-loan': 'Business Loan page',
+    'car-loan': 'Car Loan page',
+    'emi-calculator': 'EMI Calculator page',
+    'contact': 'Contact page',
+    'partner': 'Partner page'
+  };
+
+  function pageName() {
+    var slug = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+    return PAGE_NAMES[slug] || document.title;
   }
 
   function submit(form, status, lead) {
@@ -462,6 +488,9 @@
     // one-tap call and WhatsApp links for the 30-minute callback.
     var kind = $('input[name="enquiry_kind"]', form);
     var isPartner = !!(kind && kind.value);
+    // On the partner page a visitor who picks "looking for a loan" is a loan lead
+    var intent = $('input[name="intent"]:checked', form);
+    if (intent) isPartner = intent.value === 'partner';
     var product = lead.type && !/^not sure/i.test(lead.type) ? lead.type : '';
     var mobile = '+91 ' + lead.phone.slice(0, 5) + ' ' + lead.phone.slice(5);
     // Read from the URL directly: page titles contain " | ", so the joined
@@ -480,6 +509,7 @@
       : 'New ' + (product || 'loan') + ' enquiry — ' + lead.name + ' (' + mobile + ')');
     if (bot) data.append('botcheck', bot.checked ? 'on' : '');
 
+    data.append('Submitted from', pageName());
     data.append('Enquiry', isPartner ? 'Partner / referral' : (product || 'Not sure yet'));
     data.append('Name', lead.name);
     data.append('Mobile', mobile);

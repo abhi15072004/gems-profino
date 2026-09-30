@@ -500,8 +500,8 @@ PRODUCTS = [
             'Buying a plot and building on it',
             'Construction on land you already own',
             'Extending or renovating an existing house',
-            'Balance transfer — moving your current loan to a lower rate',
-            'Top-up on a home loan you are already repaying',
+            'Moving your current loan to a lower rate',
+            'Top-up on your existing home loan',
         ],
         'doc_list': [
             'PAN and Aadhaar',
@@ -533,11 +533,6 @@ PRODUCTS = [
              'Yes. Lenders assess business income rather than salary slips, usually from two to three years '
              'of ITR and your bank statements. Some lenders judge self-employed files far more generously '
              'than others, and that choice is where we add the most value.'),
-            ('Is a balance transfer worth it?',
-             'Only if the saving outlasts the cost. Moving a loan means a fresh processing fee and legal '
-             'check, so it usually pays off when you have more than five years left and the new rate is at '
-             'least half a percent lower. Send us your current rate and outstanding amount and we will '
-             'tell you plainly whether it is worth doing.'),
             ('Can I add a co-applicant?',
              'Yes, and it often helps. A spouse or parent with income raises the amount you can borrow. '
              'Where the co-applicant is a woman, several lenders offer a slightly lower rate.'),
@@ -558,11 +553,9 @@ PRODUCTS = [
         'who_h': 'When you need a large amount and own property.',
         'who_p': 'People come to us for LAP when the amount they need is too large for an unsecured loan, or when the rate on one is simply too high to justify.',
         'who_list': [
-            'Business expansion or working capital, at a secured rate',
-            'Consolidating expensive personal or credit card debt',
-            'Funding education or medical costs abroad',
-            'A property purchase, where the new one is not yet mortgageable',
-            'A wedding or other large one-time expense',
+            'Working capital requirements',
+            'Business expansions',
+            'Purchase of new property or assets',
         ],
         'doc_list': [
             'PAN and Aadhaar',
@@ -617,7 +610,6 @@ PRODUCTS = [
         'who_p': 'Bank underwriting is built around salaried income, which is exactly why good businesses get declined. What matters is putting your file in front of a lender that reads GST returns and bank statements properly.',
         'who_list': [
             'Working capital for stock, salaries or receivables',
-            'Expanding to a second location or a larger premises',
             'Machinery and equipment purchase',
             'Funding a confirmed order you cannot finance from cash flow',
             'Consolidating costlier existing business borrowing',
@@ -656,9 +648,6 @@ PRODUCTS = [
              '<span class="tbc" title="@TBC@">An unsecured business loan with clean documents is often sanctioned '
              'within a week. Secured loans take longer</span>, because the property has to be valued and legally '
              'checked.'),
-            ('What if my business is less than two years old?',
-             'It narrows the options but does not close them. Some NBFCs lend from one year of vintage, at a '
-             'higher rate. If you own property, a loan against it is usually the cheaper route for a young business.'),
             ('Can I prepay without a penalty?',
              'It depends on the lender and whether the rate is fixed or floating. We will tell you the '
              'prepayment terms before you sign, not after — it matters a great deal if you expect to clear '
