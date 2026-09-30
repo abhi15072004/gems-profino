@@ -144,7 +144,7 @@ FOOT = '''</main>
           <li><a href="tel:+919841525074" data-call>+91 98415 25074</a></li>
           <li><a data-wa href="#" rel="noopener">WhatsApp</a></li>
           <li><a href="https://instagram.com/gemsprofino" rel="noopener">Instagram</a></li>
-          <li><a href="https://facebook.com/gemsprofino" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61593856306629" rel="noopener">Facebook</a></li>
           <li class="tbc" title="Awaiting office address">Chennai, Tamil Nadu</li>
         </ul>
       </div>

@@ -219,7 +219,7 @@ CONTACT = '''
       <p class="eyebrow" style="margin-top:40px">Social</p>
       <ul class="check check--links">
         <li><a href="https://instagram.com/gemsprofino" rel="noopener">Instagram — @gemsprofino</a></li>
-        <li><a href="https://facebook.com/gemsprofino" rel="noopener">Facebook — @gemsprofino</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61593856306629" rel="noopener">Facebook — @gemsprofino</a></li>
       </ul>
     </div>
 

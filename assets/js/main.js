@@ -294,8 +294,8 @@
     $$('[data-wa]').forEach(function (el) {
       var product = el.getAttribute('data-wa') || document.body.getAttribute('data-product') || '';
       var msg = product
-        ? 'Hi GEMS Profino, I would like to know more about a ' + product + '.'
-        : 'Hi GEMS Profino, I would like to enquire about a loan.';
+        ? 'Hi GEMS Profino, I would like to enquire about a ' + product + '. Please call back.'
+        : 'Hi GEMS Profino, I would like to enquire about a loan. Please call back.';
       el.setAttribute('href', waHref(msg));
       el.addEventListener('click', function () {
         track('whatsapp_click', { product: product || 'general' });
