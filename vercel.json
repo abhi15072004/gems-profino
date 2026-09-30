@@ -2,12 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/((?!coming-soon\\.html|assets/).*)",
-      "has": [{ "type": "host", "value": "www.gemsprofino.com" }],
-      "destination": "/coming-soon.html",
-      "permanent": false
-    },
-    {
       "source": "/car-loan-new.html",
       "destination": "/car-loan.html",
       "permanent": true
