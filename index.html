@@ -489,6 +489,20 @@ PROCESS
 
     <div class="form-card">
       <form id="enquiry-form" novalidate>
+        <!-- Same loan / partner choice as partner.html, added 30 Sep 2026 -->
+        <fieldset class="field field--choice">
+          <legend>What would you like to do?</legend>
+          <label class="choice">
+            <input type="radio" name="intent" value="loan" required>
+            <span>I am looking for a loan</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="intent" value="partner" required>
+            <span>I want to join as a partner</span>
+          </label>
+          <p class="field-error"></p>
+        </fieldset>
+
         <div class="field">
           <label for="f-name">Your name <span class="req">*</span></label>
           <input id="f-name" name="name" type="text" autocomplete="name" required>
